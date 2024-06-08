@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://xmxlqixkjymy"]
+
+[ext_resource type="PackedScene" uid="uid://dcnukii3i5ntd" path="res://assets/imported/axe.glb" id="1_hwein"]
+[ext_resource type="Material" uid="uid://brvx73drqe38a" path="res://assets/materials/metal_1.tres" id="2_xrdj0"]
+[ext_resource type="Material" uid="uid://d3d0gcoq1ts65" path="res://assets/materials/wood_1.tres" id="3_oye5t"]
+
+[node name="axe" instance=ExtResource("1_hwein")]
+
+[node name="axe" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_xrdj0")
+surface_material_override/1 = ExtResource("3_oye5t")

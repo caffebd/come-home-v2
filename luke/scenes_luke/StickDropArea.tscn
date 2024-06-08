@@ -1,0 +1,125 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfa8lki1uysbs"]
+
+[ext_resource type="Script" path="res://luke/scripts_luke/stick_drop_dome.gd" id="1_l6xt8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7parf"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.707967, 0.707967, 0.707967, 0.0627451)
+
+[sub_resource type="SphereMesh" id="SphereMesh_rh1xg"]
+material = SubResource("StandardMaterial3D_7parf")
+
+[sub_resource type="Animation" id="Animation_kr5vc"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("areaSphere:mesh:material:albedo_color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.707967, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("areaSphere:mesh:material:albedo_color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.707967, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("areaSphere:mesh:material:albedo_color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.707967, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("areaSphere:mesh:material:albedo_color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.0627451, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_mtnag"]
+resource_name = "pulse"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("areaSphere:mesh:material:albedo_color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.707967, -0.25, 0, 0.25, 0, 0.709804, -0.25, 0, 0.25, 0, 0.709804, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.332, 2.997)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("areaSphere:mesh:material:albedo_color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.707967, -0.25, 0, 0.25, 0, 0.709804, -0.25, 0, 0.25, 0, 0.709804, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.3653, 2.997)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("areaSphere:mesh:material:albedo_color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.707967, -0.25, 0, 0.25, 0, 0.709804, -0.25, 0, 0.25, 0, 0.709804, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.3653, 2.997)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("areaSphere:mesh:material:albedo_color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.0627451, -0.25, 0, 0.25, 0, 0.145098, -0.25, 0, 0.25, 0, 0.0627451, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.3653, 2.997)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7pxpw"]
+_data = {
+"RESET": SubResource("Animation_kr5vc"),
+"pulse": SubResource("Animation_mtnag")
+}
+
+[node name="StickDropArea" type="Node3D"]
+script = ExtResource("1_l6xt8")
+
+[node name="areaSphere" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_rh1xg")
+
+[node name="SphereAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7pxpw")
+}

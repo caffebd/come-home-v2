@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2w073ccowkeh"]
+
+[ext_resource type="PackedScene" uid="uid://bimyjk71mfg1l" path="res://assets/imported/grass1.glb" id="1_trwh6"]
+[ext_resource type="Shader" uid="uid://c3a56gk4edok" path="res://assets/materials/shaderMat/grass1.tres" id="2_i51uk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g6p2t"]
+render_priority = 0
+shader = ExtResource("2_i51uk")
+
+[node name="grass1" instance=ExtResource("1_trwh6")]
+
+[node name="grass1_albedo" parent="." index="0"]
+visibility_range_end = 10.0
+surface_material_override/0 = SubResource("ShaderMaterial_g6p2t")
+
+[node name="grass1_albedo_001" parent="." index="1"]
+visibility_range_end = 10.0
+surface_material_override/0 = SubResource("ShaderMaterial_g6p2t")
+
+[node name="grass1_albedo_002" parent="." index="2"]
+visibility_range_end = 10.0
+surface_material_override/0 = SubResource("ShaderMaterial_g6p2t")
+
+[node name="grass1_albedo_003" parent="." index="3"]
+visibility_range_end = 10.0
+surface_material_override/0 = SubResource("ShaderMaterial_g6p2t")
+
+[node name="grass1_albedo_004" parent="." index="4"]
+visibility_range_end = 10.0
+surface_material_override/0 = SubResource("ShaderMaterial_g6p2t")
+
+[node name="grass1_albedo_005" parent="." index="5"]
+visibility_range_end = 10.0
+surface_material_override/0 = SubResource("ShaderMaterial_g6p2t")
+
+[node name="grass1_albedo_006" parent="." index="6"]
+visibility_range_end = 10.0
+surface_material_override/0 = SubResource("ShaderMaterial_g6p2t")
+
+[node name="grass1_albedo_007" parent="." index="7"]
+visibility_range_end = 10.0
+surface_material_override/0 = SubResource("ShaderMaterial_g6p2t")
+
+[node name="grass1_albedo_008" parent="." index="8"]
+visibility_range_end = 10.0
+surface_material_override/0 = SubResource("ShaderMaterial_g6p2t")
+
+[node name="grass1_albedo_009" parent="." index="9"]
+visibility_range_end = 10.0
+surface_material_override/0 = SubResource("ShaderMaterial_g6p2t")
+
+[node name="grass1_albedo_010" parent="." index="10"]
+visibility_range_end = 10.0
+surface_material_override/0 = SubResource("ShaderMaterial_g6p2t")
+
+[node name="grass1_albedo_011" parent="." index="11"]
+visibility_range_end = 10.0
+surface_material_override/0 = SubResource("ShaderMaterial_g6p2t")

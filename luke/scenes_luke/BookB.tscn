@@ -1,0 +1,104 @@
+[gd_scene load_steps=11 format=4 uid="uid://cec4i4xem7qhw"]
+
+[ext_resource type="Script" path="res://luke/scripts_luke/pull_item.gd" id="1_5u3xx"]
+[ext_resource type="Material" uid="uid://b7dd71aryuxcc" path="res://assets/materials/bookCover_2.tres" id="2_kb556"]
+[ext_resource type="Material" uid="uid://c1mi72dkkfr3s" path="res://assets/materials/bookPages.tres" id="3_5u8c7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ud0wj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3hubi"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_kndrx"]
+_surfaces = [{
+"aabb": AABB(-0.0465759, -0.694161, -0.5, 0.12102, 0.694161, 1.00001),
+"format": 34896613377,
+"index_count": 18,
+"index_data": PackedByteArray("AAAGAAUAAAACAAYABAAGAAcABAAFAAYABAADAAEABAAHAAMA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP7/AAD//wAA/v8AAAAAAAAAAAAA//8AAAAAAAD//////v8AAAAA///+/wAAAAD//wAAAAD/////AAAAAA==")
+}, {
+"aabb": AABB(-0.0463717, -0.61239, -0.427511, 0.120612, 0.611611, 0.847063),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("BAAHAAUABAAGAAcAAgABAAMAAgAAAAEAAAAFAAEAAAAEAAUABgADAAcABgACAAMABwABAAUABwADAAEABgAAAAIABgAEAAAA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAD9//7/AAAAAP3/AAAAAP///f/+/wAA///9/wAAAAAAAAAA/v8AAAAAAAAAAAAA//8AAP7/AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vhil2"]
+resource_name = "book2_TexturesCom_BookCovers0136_6_masked_S"
+_surfaces = [{
+"aabb": AABB(-0.0465759, -0.694161, -0.5, 0.12102, 0.694161, 1.00001),
+"attribute_data": PackedByteArray("AAD///////8AAAAA//8AABCN//8Qjf//0nf//9J3///SdwAA0ncAABCNAAAQjQAA"),
+"format": 34896613399,
+"index_count": 18,
+"index_data": PackedByteArray("AAAIAAYAAAACAAgABAAJAAoABAAHAAkABQADAAEABQALAAMA"),
+"material": SubResource("StandardMaterial3D_ud0wj"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AAAAAP7/VNX//wAA/v9U1QAAAAAAAFTV//8AAAAAVNX//////v//v//////+/1TVAAD///7/VNUAAP///v//vwAA//8AAFTVAAD//wAA/7//////AAD/v/////8AAFTVVNVU1aqqVFVU1VTVqqpUVf///3+qqlRVVNVU1f///39U1VTV////f////3+qqlRV")
+}, {
+"aabb": AABB(-0.0463717, -0.61239, -0.427511, 0.120612, 0.611611, 0.847063),
+"attribute_data": PackedByteArray("/1///xuqrY3/XwAA/5///xaqrY3/nwAA6sGtjf9f/z//X/8/R5Ktjf+f/z//n/8/lGD/v/B0/uzwdP7sap//v/B0d4jwdHeI8mT+7PJk/uyUYP9/8mR3iPJkd4hqn/9/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("DQAVABAADQASABUABwAFAAoABwACAAUAAAAPAAMAAAAMAA8AFAALABcAFAAIAAsAFgAEABEAFgAJAAQAEwABAAYAEwAOAAEA"),
+"material": SubResource("StandardMaterial3D_3hubi"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAD9//7///8AAP3//v8AAAAA/f/+/1TVAAD9/wAA//8AAP3/AAAAAAAA/f8AAFTV///9//7/AID///3//v9U1f///f/+//+////9/wAAAAD///3/AABU1f///f8AAP+/AAAAAP7///8AAAAA/v///wAAAAD+/wAAAAAAAAAA//8AAAAAAAD//wAAAAAAAAAA//8AAP7//////wAA/v8AAP//AAD+//+///8AAAAA/////wAAAAAAAP//AAAAAP+//z//f/9//39U1aoq/z//f/9///9U1aoq/3///1TVqir/fwAA/3///1TVqir/fwAA/z//f/9//z//f/9//z//f/9//z//f////3//P/9//3//fwAA/3//P/9/////fwAA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_kndrx")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bo0d4"]
+size = Vector3(0.09, 0.45, 0.295)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lhdhg"]
+size = Vector3(0.09, 0.34, 0.19)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_102c6"]
+size = Vector3(0.09, 0.225, 0.1)
+
+[node name="BookB" type="RigidBody3D" node_paths=PackedStringArray("texture") groups=["highlight", "pull_item"]]
+collision_layer = 66
+collision_mask = 64
+continuous_cd = true
+script = ExtResource("1_5u3xx")
+texture = NodePath("TexturesCom_BookCovers0136_6_masked_S")
+
+[node name="RayA" type="RayCast3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.00376679, 0.00905339, 0.0232754)
+target_position = Vector3(0, -0.05, 0)
+collision_mask = 256
+
+[node name="RayA2" type="RayCast3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.016454, 0, 0)
+target_position = Vector3(0, -0.05, 0)
+collision_mask = 256
+
+[node name="TexturesCom_BookCovers0136_6_masked_S" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.460742, 0, 0, 0, 0, -0.460742, 0, 0.460742, 0, -0.00468673, 0, 0.19486)
+mesh = SubResource("ArrayMesh_vhil2")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_kb556")
+surface_material_override/1 = ExtResource("3_5u8c7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0427734)
+shape = SubResource("BoxShape3D_bo0d4")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0300714)
+shape = SubResource("BoxShape3D_lhdhg")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.030865)
+shape = SubResource("BoxShape3D_102c6")

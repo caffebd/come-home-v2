@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjvoguq1nanmj"]
+
+[ext_resource type="Script" path="res://luke/scripts_luke/light_trigger_area.gd" id="1_1wt1t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2o5d6"]
+size = Vector3(3.625, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j1oov"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_n1wtb"]
+material = SubResource("StandardMaterial3D_j1oov")
+
+[node name="LightTriggerArea" type="Area3D"]
+script = ExtResource("1_1wt1t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_2o5d6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.57905, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_n1wtb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

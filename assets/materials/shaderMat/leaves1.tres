@@ -1,0 +1,90 @@
+[gd_resource type="VisualShader" load_steps=11 format=3 uid="uid://cqto2eea3axkw"]
+
+[ext_resource type="Texture2D" uid="uid://di6ke0ikfnl21" path="res://assets/textures/tree/leafCluster_1/leafCluster_1_Albedo.png" id="1_mrhiq"]
+[ext_resource type="Texture2D" uid="uid://c75576x75klyb" path="res://assets/textures/tree/leafCluster_1/leafCluster_1_Gloss.png" id="2_tsboy"]
+[ext_resource type="Texture2D" uid="uid://b0tj78lhkmjun" path="res://assets/textures/tree/leafCluster_1/leafCluster_1_Normal.png" id="3_symc3"]
+[ext_resource type="Texture2D" uid="uid://cjqd3um8ktax0" path="res://assets/textures/tree/leafCluster_1/leafCluster_1_Opacity_Opacity.png" id="4_c8brf"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_mf8cs"]
+texture = ExtResource("1_mrhiq")
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_rh085"]
+texture = ExtResource("2_tsboy")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_k5oe2"]
+texture = ExtResource("3_symc3")
+texture_type = 2
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_o51bu"]
+texture = ExtResource("4_c8brf")
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_0nrnk"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1), 2, Vector3(1, 1, 1)]
+op_type = 3
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_6ksod"]
+constant = Color(0, 0, 0, 1)
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_lambert, specular_schlick_ggx, depth_prepass_alpha;
+
+uniform sampler2D tex_frg_2 : source_color;
+uniform sampler2D tex_frg_5;
+uniform sampler2D tex_frg_3;
+uniform sampler2D tex_frg_4 : hint_normal;
+
+
+
+void fragment() {
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, UV);
+
+
+// ColorConstant:7
+	vec4 n_out7p0 = vec4(0.000000, 0.000000, 0.000000, 1.000000);
+
+
+// Mix:6
+	vec3 n_in6p2 = vec3(1.00000, 1.00000, 1.00000);
+	vec3 n_out6p0 = mix(vec3(n_out2p0.xyz), vec3(n_out7p0.xyz), n_in6p2);
+
+
+// Texture2D:5
+	vec4 n_out5p0 = texture(tex_frg_5, UV);
+
+
+// Texture2D:3
+	vec4 n_out3p0 = texture(tex_frg_3, UV);
+
+
+// Texture2D:4
+	vec4 n_out4p0 = texture(tex_frg_4, UV);
+
+
+// Output:0
+	ALBEDO = n_out6p0;
+	ALPHA = n_out5p0.x;
+	ROUGHNESS = n_out3p0.x;
+	NORMAL_MAP = vec3(n_out4p0.xyz);
+
+
+}
+"
+modes/cull = 2
+flags/depth_prepass_alpha = true
+nodes/fragment/0/position = Vector2(460, 420)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_mf8cs")
+nodes/fragment/2/position = Vector2(-40, 40)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_rh085")
+nodes/fragment/3/position = Vector2(43.683, 487.573)
+nodes/fragment/4/node = SubResource("VisualShaderNodeTexture_k5oe2")
+nodes/fragment/4/position = Vector2(43.683, 762.091)
+nodes/fragment/5/node = SubResource("VisualShaderNodeTexture_o51bu")
+nodes/fragment/5/position = Vector2(43.683, 1036.61)
+nodes/fragment/6/node = SubResource("VisualShaderNodeMix_0nrnk")
+nodes/fragment/6/position = Vector2(240, 280)
+nodes/fragment/7/node = SubResource("VisualShaderNodeColorConstant_6ksod")
+nodes/fragment/7/position = Vector2(-40, 280)
+nodes/fragment/connections = PackedInt32Array(3, 0, 0, 3, 5, 0, 0, 1, 4, 0, 0, 9, 2, 0, 6, 0, 6, 0, 0, 0, 7, 0, 6, 1)

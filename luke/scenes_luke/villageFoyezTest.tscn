@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1s21leqfk0hx"]
+
+[ext_resource type="PackedScene" uid="uid://ovsh3y800b0u" path="res://assets/worldNew.tscn" id="2_a62tv"]
+[ext_resource type="PackedScene" uid="uid://37f4h6mvwnbh" path="res://assets/mud_hut.tscn" id="2_jjyfm"]
+[ext_resource type="PackedScene" uid="uid://vpn5x5qaq4su" path="res://assets/envParticles.tscn" id="2_p70b6"]
+[ext_resource type="PackedScene" uid="uid://ja6l726ijpr7" path="res://assets/oil_lantern.tscn" id="4_dkvqk"]
+[ext_resource type="PackedScene" uid="uid://dplf8d8w78la4" path="res://assets/environment_lights.tscn" id="4_oae23"]
+[ext_resource type="PackedScene" uid="uid://w7kh86e1ptai" path="res://luke/scenes_luke/Player.tscn" id="6_bolem"]
+
+[node name="village" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("6_bolem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.0518, 7.16708, -240.873)
+
+[node name="Node3D" parent="." instance=ExtResource("2_a62tv")]
+
+[node name="envParticles" parent="." instance=ExtResource("2_p70b6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.46314, 2.79362, 190.319)
+visible = false
+
+[node name="mud hut" parent="." instance=ExtResource("2_jjyfm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 63.3889, 30.9513, 14.9023)
+
+[node name="oilLantern" parent="mud hut" instance=ExtResource("4_dkvqk")]
+transform = Transform3D(-0.382275, 0, 3.34196e-08, 0, 0.382275, 0, -3.34196e-08, 0, -0.382275, 190.903, -20.8784, 41.3486)
+
+[node name="environment" parent="." instance=ExtResource("4_oae23")]
+
+[node name="sun2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.924149, 0.196546, 0.327595, -0.340329, 0.0339694, 0.939692, 0.173565, -0.979906, 0.0982831, -1.34816, 6.03138, 493.148)
+visible = false
+light_color = Color(0.849231, 0.717222, 0.557243, 1)
+light_energy = 0.197
+light_bake_mode = 1
+shadow_enabled = true
+shadow_bias = 0.012
+directional_shadow_mode = 0

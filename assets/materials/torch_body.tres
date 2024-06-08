@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bh8wl2s4b88ey"]
+
+[ext_resource type="Texture2D" uid="uid://cblbcuhkfiny1" path="res://assets/textures/metal_sheet_ufsoaakew/ufsoaakew_2K_Normal.jpg" id="1_lxbsv"]
+
+[resource]
+metallic = 1.0
+roughness = 0.53
+normal_enabled = true
+normal_texture = ExtResource("1_lxbsv")

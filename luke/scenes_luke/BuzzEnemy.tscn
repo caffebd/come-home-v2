@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://c3e8vsx4cw4ik"]
+
+[ext_resource type="Script" path="res://luke/scripts_luke/BuzzEnemy.gd" id="1_vmvqu"]
+[ext_resource type="AudioStream" uid="uid://dh8103qorrl76" path="res://luke/assets_luke/audio_luke/buzzing_sound_loop.mp3" id="2_dd21r"]
+[ext_resource type="PackedScene" uid="uid://bnhcflptp6mit" path="res://luke/resources_luke/buzzeffect.tscn" id="3_1fauo"]
+[ext_resource type="AudioStream" uid="uid://vleiis235wot" path="res://luke/assets_luke/audio_luke/horror_amb_v3_constant_31.ogg" id="4_hg08y"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1xsqo"]
+radius = 0.3
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dj5cf"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ksftg"]
+material = SubResource("StandardMaterial3D_dj5cf")
+radius = 0.3
+height = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_i3nsj"]
+radius = 3.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ogiwu"]
+radius = 10.015
+
+[node name="BuzzEnemy" type="CharacterBody3D" groups=["buzz"]]
+collision_mask = 4
+script = ExtResource("1_vmvqu")
+
+[node name="EnemyCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_1xsqo")
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.483596, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_ksftg")
+
+[node name="Nose" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.422036, 0, 0, 0, 0.263766, 0, 0, 0, 0.479817, 0.0685179, 1.389, -0.499827)
+visible = false
+mesh = SubResource("CapsuleMesh_ksftg")
+
+[node name="NavAgent" type="NavigationAgent3D" parent="."]
+unique_name_in_owner = true
+
+[node name="PatrolTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
+
+[node name="BuzzSound" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_dd21r")
+volume_db = -80.0
+unit_size = 30.0
+max_db = 0.0
+max_distance = 40.0
+
+[node name="DeathArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.296595, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09571, 0)
+shape = SubResource("SphereShape3D_i3nsj")
+
+[node name="WarnArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.136827, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WarnArea"]
+transform = Transform3D(1.44, 0, 0, 0, 1.44, 0, 0, 0, 1.44, 0, 1.09571, 0)
+shape = SubResource("SphereShape3D_ogiwu")
+
+[node name="SilentTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5
+one_shot = true
+
+[node name="Buzzeffect" parent="." instance=ExtResource("3_1fauo")]
+
+[node name="ChaseSoundA" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_hg08y")
+volume_db = -80.0
+max_distance = 18.0
+
+[connection signal="timeout" from="PatrolTimer" to="." method="_on_patrol_timer_timeout"]
+[connection signal="body_entered" from="DeathArea" to="." method="_on_death_area_body_entered"]
+[connection signal="body_entered" from="WarnArea" to="." method="_on_warn_area_body_entered"]
+[connection signal="timeout" from="SilentTimer" to="." method="_on_silent_timer_timeout"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://uwgt08apwad6"]
+
+[ext_resource type="Shader" path="res://assets/materials/shaderMat/screenEffect1.gdshader" id="1_lcltk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yuxdl"]
+shader = ExtResource("1_lcltk")
+shader_parameter/blur_amount = 3.0
+shader_parameter/signal_quality = 0.0
+shader_parameter/bottom_strenth = 3.0
+
+[node name="screenEffect" type="ColorRect"]
+auto_translate_mode = 1
+visible = false
+material = SubResource("ShaderMaterial_yuxdl")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4

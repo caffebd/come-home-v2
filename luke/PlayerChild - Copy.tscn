@@ -1,0 +1,166 @@
+[gd_scene load_steps=11 format=3 uid="uid://drjm0j42cp1fs"]
+
+[ext_resource type="Script" path="res://luke/scripts_luke/PlayerChild.gd" id="1_ofowk"]
+[ext_resource type="PackedScene" uid="uid://bua2airgg0xo6" path="res://luke/scenes_luke/Lamp.tscn" id="2_ajc2d"]
+[ext_resource type="PackedScene" uid="uid://cm3d1u3ihuwtd" path="res://luke/scenes_luke/hud.tscn" id="2_g6opo"]
+[ext_resource type="AudioStream" uid="uid://bd4trkkqkw1h0" path="res://luke/assets_luke/audio_luke/jump_short.mp3" id="3_okxv4"]
+[ext_resource type="PackedScene" uid="uid://cahhg0aqvpmrs" path="res://luke/scenes_luke/torch.tscn" id="3_p5kv6"]
+[ext_resource type="AudioStream" uid="uid://oy0gvh16kvly" path="res://luke/assets_luke/audio_luke/grass_footsteps.mp3" id="3_r2ww0"]
+[ext_resource type="PackedScene" uid="uid://ck188lse6kw4c" path="res://luke/scenes_luke/MatchesHand.tscn" id="4_g0diw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0ogxy"]
+height = 1.219
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bhhso"]
+height = 0.095
+radius = 1.055
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ivldu"]
+height = 0.095
+radius = 1.055
+
+[node name="PlayerChild" type="CharacterBody3D" node_paths=PackedStringArray("attack_marker", "rotate_marker", "lunge_marker") groups=["player"]]
+collision_layer = 129
+collision_mask = 129
+script = ExtResource("1_ofowk")
+attack_marker = NodePath("Head/PlayerCam/AttackMarker")
+rotate_marker = NodePath("RotateMarker")
+lunge_marker = NodePath("Head/PlayerCam/LungeMarker")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_0ogxy")
+
+[node name="RotateMarker" type="Marker3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00149998, 0.45512, -0.326577)
+
+[node name="Head" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+
+[node name="PlayerCam" type="Camera3D" parent="Head"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0239567, 0)
+cull_mask = 524287
+current = true
+fov = 60.0
+far = 1000.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Head/PlayerCam"]
+unique_name_in_owner = true
+transform = Transform3D(0.999667, 0, 0.0258105, 0, 1, 0, -0.0258105, 0, 0.999667, 0.00186288, 0.00689521, 0)
+visible = false
+light_color = Color(0.85578, 0.893093, 0.888796, 1)
+light_volumetric_fog_energy = 0.0
+spot_range = 37.5842
+
+[node name="PlayerRay" type="RayCast3D" parent="Head/PlayerCam"]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -2)
+collision_mask = 2
+
+[node name="LungeMarker" type="Marker3D" parent="Head/PlayerCam"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.955634)
+
+[node name="AttackMarker" type="Marker3D" parent="Head/PlayerCam"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.17592)
+
+[node name="PlayerInfoLabel" type="Label3D" parent="Head/PlayerCam"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0270636, -0.600696, -1.65353)
+visible = false
+text = "It's too high
+to reach"
+font_size = 22
+
+[node name="HoldPosition" type="Node3D" parent="Head/PlayerCam"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.248577, -1.53805)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+positional_shadow_atlas_size = 4096
+canvas_cull_mask = 4294443008
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="HandCam" type="Camera3D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656383, 0)
+cull_mask = 524288
+
+[node name="LampMarker" type="Marker3D" parent="CanvasLayer/SubViewportContainer/SubViewport/HandCam"]
+unique_name_in_owner = true
+transform = Transform3D(1, 5.55091e-17, 0, 5.55091e-17, 1, 0, 0, 0, 1, 1.70596, -0.618276, -1.4345)
+
+[node name="TorchMarker" type="Marker3D" parent="CanvasLayer/SubViewportContainer/SubViewport/HandCam"]
+unique_name_in_owner = true
+transform = Transform3D(1, -7.45058e-09, 7.45058e-08, 7.45058e-09, 1, -1.11759e-08, -7.45058e-08, 1.11759e-08, 1, 0.630134, -0.221556, -0.0930964)
+
+[node name="HandLight" type="OmniLight3D" parent="CanvasLayer/SubViewportContainer/SubViewport/HandCam"]
+unique_name_in_owner = true
+transform = Transform3D(1, -7.45058e-09, 7.45058e-08, 7.45058e-09, 1, -1.11759e-08, -7.45058e-08, 1.11759e-08, 1, 0.630134, -0.221556, -0.0930964)
+layers = 524288
+light_color = Color(0.957333, 1, 0.68, 1)
+light_cull_mask = 4294443008
+omni_range = 0.915
+
+[node name="Hand" type="Node3D" parent="CanvasLayer/SubViewportContainer/SubViewport/HandCam"]
+unique_name_in_owner = true
+transform = Transform3D(0.931907, -0.362698, -1.49001e-09, 0.359617, 0.923991, -0.130058, 0.0471723, 0.121203, 0.991506, 0.211194, -0.469255, -1.66832)
+
+[node name="Lamp" parent="CanvasLayer/SubViewportContainer/SubViewport/HandCam/Hand" instance=ExtResource("2_ajc2d")]
+unique_name_in_owner = true
+transform = Transform3D(0.945878, 0.312564, 0.0872926, -0.322579, 0.934965, 0.1476, -0.0354812, -0.16777, 0.985188, 1.22512, -1.27771, -1.87942)
+visible = false
+
+[node name="Torch" parent="CanvasLayer/SubViewportContainer/SubViewport/HandCam/Hand" instance=ExtResource("3_p5kv6")]
+unique_name_in_owner = true
+transform = Transform3D(1, -3.25963e-09, 0, 1.11759e-08, 1, 0, -1.11759e-08, -2.23517e-08, 1, 0.0154047, 0.0395804, 0.323792)
+
+[node name="MatchesHand" parent="CanvasLayer/SubViewportContainer/SubViewport/HandCam/Hand" instance=ExtResource("4_g0diw")]
+transform = Transform3D(1, -3.25963e-09, 0, 1.16415e-08, 1, 0, -7.45058e-09, -1.49012e-08, 1, -0.0269384, -0.0692147, -0.566219)
+
+[node name="Hud" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("2_g6opo")]
+unique_name_in_owner = true
+player = NodePath("../..")
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_okxv4")
+volume_db = -5.0
+
+[node name="Footsteps" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_r2ww0")
+volume_db = -12.0
+
+[node name="CrouchTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.0
+
+[node name="HoldingBodyCollision" type="CollisionShape3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56027, -0.131657)
+shape = SubResource("CylinderShape3D_bhhso")
+disabled = true
+
+[node name="FootLogCollision" type="CollisionShape3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.31455, -0.131657)
+shape = SubResource("CylinderShape3D_ivldu")
+disabled = true
+
+[connection signal="timeout" from="CrouchTimer" to="." method="_on_crouch_timer_timeout"]

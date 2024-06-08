@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://db1trxqlksja1"]
+
+[ext_resource type="PackedScene" uid="uid://b574iy2s20pbb" path="res://assets/torch_head.tscn" id="1_ut531"]
+[ext_resource type="PackedScene" uid="uid://jsdyyp551cbq" path="res://assets/torch_tube.tscn" id="2_nhabl"]
+
+[node name="torchNew" type="Node3D"]
+
+[node name="torchHead" parent="." instance=ExtResource("1_ut531")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.983714, 0)
+
+[node name="torchTube" parent="." instance=ExtResource("2_nhabl")]

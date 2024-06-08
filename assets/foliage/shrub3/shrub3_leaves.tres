@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://7sd7ake7xvre"]
+
+[ext_resource type="Texture2D" uid="uid://bd04rd5m57qtw" path="res://assets/foliage/shrub3/khBfQ_1K_Albedo.png" id="1_7plnb"]
+[ext_resource type="Texture2D" uid="uid://csukjlqs57m02" path="res://assets/foliage/shrub3/khBfQ_1K_Normal.jpg" id="2_gajup"]
+[ext_resource type="Texture2D" uid="uid://b3yhokho7ayoi" path="res://assets/foliage/shrub3/khBfQ_1K_Roughness.jpg" id="3_ouydh"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.3
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_7plnb")
+roughness_texture = ExtResource("3_ouydh")
+normal_enabled = true
+normal_texture = ExtResource("2_gajup")

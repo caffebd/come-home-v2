@@ -1,0 +1,69 @@
+[gd_resource type="VisualShader" load_steps=9 format=3 uid="uid://3axy2m5b7j2a"]
+
+[ext_resource type="Texture2D" uid="uid://b2s0pol3noqh6" path="res://assets/textures/shrub1/Billboard_2K_Albedo.jpg" id="1_spdso"]
+[ext_resource type="Texture2D" uid="uid://wnq5txbuqxv3" path="res://assets/textures/shrub1/Billboard_2K_Normal.jpg" id="2_54eac"]
+[ext_resource type="Texture2D" uid="uid://dxnnebbhq252h" path="res://assets/textures/shrub1/Billboard_2K_Opacity.jpg" id="3_3eyoq"]
+[ext_resource type="Texture2D" uid="uid://c0gqlgrr2pdne" path="res://assets/textures/shrub1/Billboard_2K_Roughness.jpg" id="4_y205u"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_ld8hm"]
+texture = ExtResource("1_spdso")
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_37by2"]
+texture = ExtResource("2_54eac")
+texture_type = 2
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_ue3gx"]
+texture = ExtResource("3_3eyoq")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_hqss0"]
+texture = ExtResource("4_y205u")
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D tex_frg_2 : source_color;
+uniform sampler2D tex_frg_4;
+uniform sampler2D tex_frg_5;
+uniform sampler2D tex_frg_3 : hint_normal;
+
+
+
+void fragment() {
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, UV);
+
+
+// Texture2D:4
+	vec4 n_out4p0 = texture(tex_frg_4, UV);
+
+
+// Texture2D:5
+	vec4 n_out5p0 = texture(tex_frg_5, UV);
+
+
+// Texture2D:3
+	vec4 n_out3p0 = texture(tex_frg_3, UV);
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+	ALPHA = n_out4p0.x;
+	ROUGHNESS = n_out5p0.x;
+	NORMAL = vec3(n_out3p0.xyz);
+
+
+}
+"
+modes/cull = 2
+nodes/fragment/0/position = Vector2(460, 540)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_ld8hm")
+nodes/fragment/2/position = Vector2(120, 120)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_37by2")
+nodes/fragment/3/position = Vector2(114.086, 577.22)
+nodes/fragment/4/node = SubResource("VisualShaderNodeTexture_ue3gx")
+nodes/fragment/4/position = Vector2(114.086, 909.388)
+nodes/fragment/5/node = SubResource("VisualShaderNodeTexture_hqss0")
+nodes/fragment/5/position = Vector2(120, 320)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 5, 0, 0, 3, 4, 0, 0, 1, 3, 0, 0, 8)

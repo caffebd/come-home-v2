@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxukjn77rp8hg"]
+
+[ext_resource type="PackedScene" uid="uid://butjbk6qy4whj" path="res://assets/imported/lantern instructions.glb" id="1_ewk5g"]
+[ext_resource type="Material" uid="uid://d1ql6uldycmbp" path="res://assets/torch_instructions.tres" id="2_tkvvl"]
+
+[node name="lantern instructions" instance=ExtResource("1_ewk5g")]
+
+[node name="instructionsAlbedo_002" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_tkvvl")

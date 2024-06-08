@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy6ubktdkes7v"]
+
+[ext_resource type="PackedScene" uid="uid://c1kwmq8x7muge" path="res://assets/imported/treeFallen.glb" id="1_k6l36"]
+[ext_resource type="Material" uid="uid://c8agjgl6a54o6" path="res://assets/foliage/bark1/bark1.tres" id="2_2evi6"]
+
+[node name="treeFallen" instance=ExtResource("1_k6l36")]
+
+[node name="tree1_LOD0" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_2evi6")

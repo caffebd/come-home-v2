@@ -1,0 +1,19 @@
+[gd_resource type="Environment" load_steps=2 format=3 uid="uid://bflpnk0upluy1"]
+
+[ext_resource type="Sky" uid="uid://ceadaaettmnkv" path="res://assets/env/day_sky_2.tres" id="1_ptikb"]
+
+[resource]
+background_mode = 2
+sky = ExtResource("1_ptikb")
+reflected_light_source = 1
+tonemap_mode = 3
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_use_occlusion = true
+fog_enabled = true
+fog_light_color = Color(0.341176, 0.588235, 0.682353, 1)
+fog_light_energy = 0.0
+fog_depth_begin = -5.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.021
+volumetric_fog_ambient_inject = 0.85

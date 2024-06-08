@@ -1,0 +1,55 @@
+[gd_resource type="VisualShader" load_steps=6 format=3 uid="uid://vm3h68pv8d2w"]
+
+[ext_resource type="Texture2D" uid="uid://da0hef3tphpuk" path="res://assets/textures/Rock_Cliff_uhrochkg_2K/uhrochkg_2K_Albedo.jpg" id="1_ch4be"]
+[ext_resource type="Texture2D" uid="uid://4uaorhh245ce" path="res://assets/textures/Rock_Cliff_uhrochkg_2K/uhrochkg_2K_Normal.jpg" id="2_7fmgp"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_chke0"]
+texture = ExtResource("1_ch4be")
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_66th1"]
+texture = ExtResource("2_7fmgp")
+texture_type = 2
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_ifqfr"]
+default_input_values = [1, Vector2(20, 20), 2, Vector2(0, 0)]
+function = 1
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D tex_frg_2 : source_color;
+uniform sampler2D tex_frg_3 : hint_normal;
+
+
+
+void fragment() {
+// UVFunc:4
+	vec2 n_in4p1 = vec2(20.00000, 20.00000);
+	vec2 n_in4p2 = vec2(0.00000, 0.00000);
+	vec2 n_out4p0 = (UV - n_in4p2) * n_in4p1 + n_in4p2;
+
+
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, n_out4p0);
+
+
+// Texture2D:3
+	vec4 n_out3p0 = texture(tex_frg_3, n_out4p0);
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+	NORMAL_MAP = vec3(n_out3p0.xyz);
+
+
+}
+"
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_chke0")
+nodes/fragment/2/position = Vector2(131, 118.5)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_66th1")
+nodes/fragment/3/position = Vector2(100, 340)
+nodes/fragment/4/node = SubResource("VisualShaderNodeUVFunc_ifqfr")
+nodes/fragment/4/position = Vector2(-220, 140)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 3, 0, 0, 9, 4, 0, 2, 0, 4, 0, 3, 0)

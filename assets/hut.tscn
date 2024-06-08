@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://byle4ltq2i1w5"]
+
+[ext_resource type="PackedScene" uid="uid://dad8w3xvkqaga" path="res://assets/imported/hut.glb" id="1_aynn7"]
+
+[node name="hut" instance=ExtResource("1_aynn7")]

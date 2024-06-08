@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://db87n7ficjs4r"]
+
+[ext_resource type="PackedScene" uid="uid://c415gkbmwtyjl" path="res://assets/imported/battery.glb" id="1_m330k"]
+[ext_resource type="Material" path="res://assets/materials/battery.tres" id="2_qdmqm"]
+[ext_resource type="Material" uid="uid://c04wvk7gb2k0q" path="res://assets/materials/shinyMetal.tres" id="3_speou"]
+
+[node name="battery" instance=ExtResource("1_m330k")]
+
+[node name="Cylinder_003" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_qdmqm")
+surface_material_override/1 = ExtResource("3_speou")

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqvli7lr6y7s"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fo6m3"]
+height = 0.735
+radius = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8dp6l"]
+albedo_color = Color(0.24, 0.18792, 0.0912, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_m6kws"]
+material = SubResource("StandardMaterial3D_8dp6l")
+
+[node name="LogRigid" type="RigidBody3D" groups=["log"]]
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_fo6m3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.62329e-08, -0.371364, 0, 0.371364, -1.62329e-08, 0, 0, 0, 0.371364, 0, 0, 0)
+mesh = SubResource("CylinderMesh_m6kws")

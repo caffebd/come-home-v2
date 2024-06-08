@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://brvx73drqe38a"]
+
+[ext_resource type="Texture2D" uid="uid://dk7xnvxgqry5l" path="res://assets/textures/WornMetal_2K/TexturesCom_WornMetal_2K_albedo.jpg" id="1_k5mim"]
+[ext_resource type="Texture2D" uid="uid://bucdwl5o47i6p" path="res://assets/textures/WornMetal_2K/TexturesCom_WornMetal_2K_metallic.jpg" id="2_30pb4"]
+[ext_resource type="Texture2D" uid="uid://dxawwsruud56t" path="res://assets/textures/WornMetal_2K/TexturesCom_WornMetal_2K_normal.jpg" id="3_pa4vg"]
+[ext_resource type="Texture2D" uid="uid://dvv645o4uh6sy" path="res://assets/textures/WornMetal_2K/TexturesCom_WornMetal_2K_roughness.jpg" id="4_w53to"]
+
+[resource]
+albedo_texture = ExtResource("1_k5mim")
+metallic = 1.0
+metallic_texture = ExtResource("2_30pb4")
+roughness_texture = ExtResource("4_w53to")
+normal_enabled = true
+normal_texture = ExtResource("3_pa4vg")

@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d3s6af8ubygic"]
+
+[ext_resource type="Texture2D" uid="uid://dfkb5eg4iw7aj" path="res://assets/foliage/shrub5/qicj7_2K_Albedo.png" id="1_ms1hv"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.3
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.384229, 0.384229, 0.384229, 1)
+albedo_texture = ExtResource("1_ms1hv")

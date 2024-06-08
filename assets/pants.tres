@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://ddk0myhs2iv4c"]
+
+[ext_resource type="Texture2D" uid="uid://rcq8klpmc440" path="res://assets/textures/Fabric_Flannel2_2K/TexturesCom_Fabric_Flannel2_2K_albedo.jpg" id="1_22o82"]
+[ext_resource type="Texture2D" uid="uid://8vo2l2do8dd6" path="res://assets/textures/Fabric_Flannel2_2K/TexturesCom_Fabric_Flannel2_2K_normal.jpg" id="2_srkf3"]
+
+[resource]
+albedo_texture = ExtResource("1_22o82")
+normal_texture = ExtResource("2_srkf3")

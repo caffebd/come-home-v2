@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=4 uid="uid://bpylo35umakot"]
+
+[ext_resource type="Script" path="res://luke/scripts_luke/collect_item.gd" id="1_ehyrb"]
+[ext_resource type="Texture2D" uid="uid://5oc5ygmmdlsp" path="res://assets/textures/matchBox.JPG" id="2_jwmid"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gta6j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jn327"]
+size = Vector3(0.175, 0.195, 0.03)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dkxnh"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ri4jw"]
+_surfaces = [{
+"aabb": AABB(-0.064716, -0.289768, -0.22356, 0.129432, 0.579545, 0.447131),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAADAAEAAAACAAMABAAHAAUABAAGAAcACgALAAgACgAJAAsADgAPAAwADgANAA8AEAATABIAEAARABMAFAAXABYAFAAVABcA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAD9//3/AAD+//3//f8AAAAA/f8AAAAA/v/9/wAAAAAAAP3/AAAAAP7//f8AAAAAAAAAAAAAAAD+/wAAAAAAAAAA/f8AAAAAAAAAAP3/AAAAAP3//f8AAAAAAAAAAAAA/v/9//3/AAD+/wAAAAAAAP7//f8AAAAA//8AAP3/AAAAAP3//f8AAP7//f/9/wAAAAAAAP3/AAD+/wAA/f8AAAAAAAD9/wAA/v8AAP3/AAAAAAAAAAAAAP7/AAAAAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dynyt"]
+resource_name = "matchBox_IMG_9248_007"
+_surfaces = [{
+"aabb": AABB(-0.064716, -0.289768, -0.22356, 0.129432, 0.579545, 0.447131),
+"attribute_data": PackedByteArray("hBPBwWUerMEyE7Q2Cx5eNp1uP8PChCrD9G0yOAuE3Dedbj/D7x8vMqUhh8P0bQcxnW4/w+8fLzKlIYfD9G0HMZ1uP8PChCrD9G0yOAuE3DeEE8HBZR6swTITtDYLHl42"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAADAAEAAAACAAMABAAHAAUABAAGAAcACgALAAgACgAJAAsADgAPAAwADgANAA8AEAATABIAEAARABMAFAAXABYAFAAVABcA"),
+"material": SubResource("StandardMaterial3D_dkxnh"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAD9//3//7/+//3//f//vwAA/f8AAP+//v/9/wAA/78AAP3/AAD///7//f8AAP//AAAAAAAA///+/wAAAAD//wAA/f8AAOz/AAAAAP3/sv8AAP3//f/U/wAAAAAAAMv//v/9//3/7P/+/wAAAACy//7//f8AANT///8AAP3/y/8AAP3//f/Yf/7//f/9/+R/AAAAAP3/j3/+/wAA/f+afwAAAAD9//8//v8AAP3//z8AAAAAAAD/P/7/AAAAAP8/mP8ygLz/IIDw/oaAFf90gMH/PYDU/yqAT/+vgGH/nIDq/wnAqv8pwM//FsDF/xvAFAD1P1QA1T8vAOg/OQDjP/////////////////////8zAGaAIQBBgIcADYF0AOmA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ri4jw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_54kg3"]
+albedo_texture = ExtResource("2_jwmid")
+
+[node name="Matches" type="Node3D"]
+script = ExtResource("1_ehyrb")
+item_name = "matches"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.116621, 0, 0, 0, 0.195342, 0, 0, 0, 0.0696135, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_gta6j")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["collect_item", "highlight"]]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_jn327")
+
+[node name="matchBox" type="MeshInstance3D" parent="."]
+transform = Transform3D(0, -1.28534e-07, -0.320263, 1.28534e-07, -0.320263, 1.28534e-07, -0.320263, -1.28534e-07, 0, 0, 0, 0)
+mesh = SubResource("ArrayMesh_dynyt")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_54kg3")

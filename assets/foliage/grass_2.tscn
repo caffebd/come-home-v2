@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://n5sjfutuve4h"]
+
+[ext_resource type="PackedScene" uid="uid://5dw6gpbv8u0r" path="res://assets/imported/grass2.glb" id="1_v5r84"]
+[ext_resource type="Shader" uid="uid://d2bnwgqwmwy8j" path="res://assets/materials/shaderMat/grass2.tres" id="2_6eh78"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nkimu"]
+render_priority = 0
+shader = ExtResource("2_6eh78")
+
+[node name="grass2" instance=ExtResource("1_v5r84")]
+
+[node name="Billboard_2K_Opacity_001" parent="." index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_nkimu")
+
+[node name="Billboard_2K_Opacity_003" parent="." index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_nkimu")
+
+[node name="Billboard_2K_Opacity_004" parent="." index="2"]
+surface_material_override/0 = SubResource("ShaderMaterial_nkimu")
+
+[node name="Billboard_2K_Opacity_005" parent="." index="3"]
+surface_material_override/0 = SubResource("ShaderMaterial_nkimu")
+
+[node name="Billboard_2K_Opacity_006" parent="." index="4"]
+surface_material_override/0 = SubResource("ShaderMaterial_nkimu")
+
+[node name="Billboard_2K_Opacity_007" parent="." index="5"]
+surface_material_override/0 = SubResource("ShaderMaterial_nkimu")
+
+[node name="Billboard_2K_Opacity_008" parent="." index="6"]
+surface_material_override/0 = SubResource("ShaderMaterial_nkimu")
+
+[node name="Billboard_2K_Opacity_009" parent="." index="7"]
+surface_material_override/0 = SubResource("ShaderMaterial_nkimu")
+
+[node name="Billboard_2K_Opacity_010" parent="." index="8"]
+surface_material_override/0 = SubResource("ShaderMaterial_nkimu")
+
+[node name="Billboard_2K_Opacity_011" parent="." index="9"]
+surface_material_override/0 = SubResource("ShaderMaterial_nkimu")

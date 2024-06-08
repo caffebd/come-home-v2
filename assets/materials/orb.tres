@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bylldmihjg34q"]
+
+[ext_resource type="Texture2D" uid="uid://c0bnydjpajh8" path="res://assets/textures/orbAlbedo.png" id="1_r8ncw"]
+
+[resource]
+transparency = 1
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+albedo_texture = ExtResource("1_r8ncw")
+billboard_mode = 2
+billboard_keep_scale = true

@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwldiap5rvvwv"]
+
+[ext_resource type="PackedScene" uid="uid://idbxesj0xahm" path="res://assets/imported/fern1.glb" id="1_xn76e"]
+[ext_resource type="Material" uid="uid://dxvd23akn6xks" path="res://assets/materials/fern.tres" id="2_pt807"]
+
+[node name="fern1" instance=ExtResource("1_xn76e")]
+
+[node name="TexturesCom_Forest_LadyFern05_2K_alpha" parent="." index="0"]
+transform = Transform3D(-0.0956931, 0.271919, 1.05698, 0.891712, 0.396295, -4.2372e-07, -0.339418, 0.964476, -0.297999, 0.0101822, -0.0284014, 0.00812292)
+surface_material_override/0 = ExtResource("2_pt807")
+
+[node name="TexturesCom_Forest_LadyFern05_2K_alpha_002" parent="." index="1"]
+transform = Transform3D(4.65642e-08, -0.904739, -0.15136, 0.781217, 5.39266e-08, 9.02179e-09, 0, -0.15136, 0.904739, 0.00192343, -0.0237835, 0.0169177)
+surface_material_override/0 = ExtResource("2_pt807")
+
+[node name="TexturesCom_Forest_LadyFern05_2K_alpha_003" parent="." index="2"]
+transform = Transform3D(9.06585e-08, -0.519818, 0.726092, 0.760498, 6.19671e-08, -8.65569e-08, 0, 0.726092, 0.519818, -0.0274734, 0.197654, 0.0182562)
+surface_material_override/0 = ExtResource("2_pt807")
+
+[node name="TexturesCom_Forest_LadyFern05_2K_alpha_004" parent="." index="3"]
+transform = Transform3D(-0.0436179, -0.942672, 0.0304187, 0.804002, -0.0511939, -3.38807e-08, 0.00140488, 0.0303617, 0.944441, -0.030842, -0.0282006, 0.016656)
+surface_material_override/0 = ExtResource("2_pt807")
+
+[node name="TexturesCom_Forest_LadyFern05_2K_alpha_005" parent="." index="4"]
+transform = Transform3D(4.12925e-08, 0.772521, 0.422168, 0.692773, -5.23366e-08, -1.36517e-08, 1.03231e-08, 0.422168, -0.772521, 0.0118826, -0.0273526, 0.00917027)
+surface_material_override/0 = ExtResource("2_pt807")
+
+[node name="TexturesCom_Forest_LadyFern05_2K_alpha_006" parent="." index="5"]
+transform = Transform3D(4.887e-08, 0.0569247, -0.961053, 0.819903, -3.20346e-08, 5.55867e-08, -2.4435e-08, -0.961053, -0.0569247, -0.00672484, -0.0284862, -0.00543261)
+surface_material_override/0 = ExtResource("2_pt807")
+
+[node name="TexturesCom_Forest_LadyFern05_2K_alpha_007" parent="." index="6"]
+transform = Transform3D(2.03046e-07, -0.849148, 0.528154, 0.851637, 2.33933e-07, -7.53086e-08, -5.07615e-08, 0.528154, 0.849148, -0.0192457, -0.0204721, 0.0161354)
+surface_material_override/0 = ExtResource("2_pt807")
+
+[node name="TexturesCom_Forest_LadyFern05_2K_alpha_008" parent="." index="7"]
+transform = Transform3D(1.08927e-07, 0.671921, 0.836478, 0.913745, -8.00992e-08, -9.9716e-08, 0, 0.836478, -0.671921, 0.0188222, -0.0221197, 0.0187082)
+surface_material_override/0 = ExtResource("2_pt807")
+
+[node name="TexturesCom_Forest_LadyFern05_2K_alpha_010" parent="." index="8"]
+transform = Transform3D(4.56561e-08, 0.890273, -0.127975, 0.765983, -5.30644e-08, 7.62792e-09, 0, -0.127975, -0.890273, 0.00894196, -0.0288101, -0.0175752)
+surface_material_override/0 = ExtResource("2_pt807")
+
+[node name="TexturesCom_Forest_LadyFern05_2K_alpha_009" parent="." index="9"]
+transform = Transform3D(5.07615e-08, 0.51175, 0.859135, 0.851637, -4.89845e-09, -6.64598e-08, -2.53808e-08, 0.859135, -0.51175, -0.00527847, -0.0285334, 0.00985531)
+surface_material_override/0 = ExtResource("2_pt807")

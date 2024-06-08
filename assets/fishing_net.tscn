@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bl734uvrycd8m"]
+
+[ext_resource type="PackedScene" uid="uid://dtgm21ka2a0eb" path="res://assets/imported/fishingNet.glb" id="1_4fkao"]
+[ext_resource type="Material" uid="uid://d3d0gcoq1ts65" path="res://assets/materials/wood_1.tres" id="2_wxj5q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vb2py"]
+albedo_color = Color(0.150075, 0.150075, 0.150075, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6xi2q"]
+size = Vector3(0.765, 0.07, 1.44)
+
+[node name="fishingNet" instance=ExtResource("1_4fkao")]
+
+[node name="Plane" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vb2py")
+surface_material_override/1 = ExtResource("2_wxj5q")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.860582, -0.509312, 0, 0.509312, 0.860582, 0, 0, 0)
+shape = SubResource("BoxShape3D_6xi2q")

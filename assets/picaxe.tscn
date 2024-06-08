@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://d27tsanwpi53o"]
+
+[ext_resource type="PackedScene" uid="uid://bc643jbtobpdq" path="res://assets/imported/picaxe.glb" id="1_vdnvk"]
+[ext_resource type="Material" uid="uid://d3d0gcoq1ts65" path="res://assets/materials/wood_1.tres" id="2_ul6pe"]
+[ext_resource type="Material" uid="uid://brvx73drqe38a" path="res://assets/materials/metal_1.tres" id="3_d8e0e"]
+
+[node name="picaxe" instance=ExtResource("1_vdnvk")]
+
+[node name="picaxe" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_ul6pe")
+surface_material_override/1 = ExtResource("3_d8e0e")

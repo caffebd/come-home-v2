@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://dplf8d8w78la4"]
+
+[ext_resource type="Environment" uid="uid://bnu6ciq241yuv" path="res://assets/env/env3.tres" id="2_ii3ph"]
+
+[node name="environment" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_ii3ph")
+
+[node name="sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.896657, 0.219353, 0.384567, 3.55271e-15, -0.868631, 0.495459, 0.442727, -0.444256, -0.778864, -6.678, 2.75738, -2.17394)
+visible = false
+light_color = Color(0.849231, 0.717222, 0.557243, 1)
+light_energy = 0.17
+light_volumetric_fog_energy = 2.75
+shadow_enabled = true
+shadow_bias = 0.012
+directional_shadow_mode = 0
+
+[node name="moon" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.533134, 0.681998, -0.500646, 0.684547, -2.99225e-08, 0.728969, 0.497155, -0.731354, -0.46686, -6.678, 2.75738, -2.17394)
+visible = false
+light_color = Color(0.881267, 0.86462, 0.766125, 1)
+light_energy = 0.089
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+directional_shadow_mode = 0

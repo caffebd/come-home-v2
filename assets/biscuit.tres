@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bib27lj5etj7q"]
+
+[ext_resource type="Texture2D" uid="uid://brcq0x25sf800" path="res://assets/textures/biscuit.jpg" id="1_wcf71"]
+
+[resource]
+cull_mode = 2
+albedo_color = Color(0.523781, 0.523781, 0.523781, 1)
+albedo_texture = ExtResource("1_wcf71")

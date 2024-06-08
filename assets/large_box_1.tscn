@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://oo8635pvrdc"]
+
+[ext_resource type="PackedScene" uid="uid://c0oojdgrmag8x" path="res://assets/imported/largeBox1.glb" id="1_4b636"]
+[ext_resource type="Material" uid="uid://brvx73drqe38a" path="res://assets/materials/metal_1.tres" id="2_qcgob"]
+[ext_resource type="Material" uid="uid://d3d0gcoq1ts65" path="res://assets/materials/wood_1.tres" id="3_yecfx"]
+
+[node name="largeBox1" instance=ExtResource("1_4b636")]
+
+[node name="Cube_036" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_qcgob")
+surface_material_override/1 = ExtResource("3_yecfx")

@@ -1,0 +1,72 @@
+[gd_resource type="VisualShader" load_steps=9 format=3 uid="uid://w6txq28c5nva"]
+
+[ext_resource type="Texture2D" uid="uid://cf0rwcsnfsl0v" path="res://assets/textures/LadyFern05_2K/TexturesCom_Forest_LadyFern05_2K_albedo.jpg" id="1_g0g4n"]
+[ext_resource type="Texture2D" uid="uid://cmcmoia37gegh" path="res://assets/textures/LadyFern05_2K/TexturesCom_Forest_LadyFern05_2K_alpha.jpg" id="2_vt2fj"]
+[ext_resource type="Texture2D" uid="uid://bis44r7awah2b" path="res://assets/textures/LadyFern05_2K/TexturesCom_Forest_LadyFern05_2K_normal.jpg" id="3_xts81"]
+[ext_resource type="Texture2D" uid="uid://dtjoap6a8bmoe" path="res://assets/textures/LadyFern05_2K/TexturesCom_Forest_LadyFern05_2K_roughness.jpg" id="4_ho2i4"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_4p4sg"]
+texture = ExtResource("1_g0g4n")
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_q3sed"]
+texture = ExtResource("2_vt2fj")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_6q4mu"]
+texture = ExtResource("3_xts81")
+texture_type = 2
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_pl0c4"]
+texture = ExtResource("4_ho2i4")
+texture_type = 1
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_lambert, specular_schlick_ggx, alpha_to_coverage, alpha_to_coverage_and_one;
+
+uniform sampler2D tex_frg_2 : source_color;
+uniform sampler2D tex_frg_3;
+uniform sampler2D tex_frg_5 : source_color;
+uniform sampler2D tex_frg_4 : hint_normal;
+
+
+
+void fragment() {
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, UV);
+
+
+// Texture2D:3
+	vec4 n_out3p0 = texture(tex_frg_3, UV);
+
+
+// Texture2D:5
+	vec4 n_out5p0 = texture(tex_frg_5, UV);
+
+
+// Texture2D:4
+	vec4 n_out4p0 = texture(tex_frg_4, UV);
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+	ALPHA = n_out3p0.x;
+	ROUGHNESS = n_out5p0.x;
+	NORMAL = vec3(n_out4p0.xyz);
+
+
+}
+"
+modes/cull = 2
+flags/alpha_to_coverage = true
+flags/alpha_to_coverage_and_one = true
+nodes/fragment/0/position = Vector2(280, 500)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_4p4sg")
+nodes/fragment/2/position = Vector2(-169.134, 231.074)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_q3sed")
+nodes/fragment/3/position = Vector2(-160, 440)
+nodes/fragment/4/node = SubResource("VisualShaderNodeTexture_6q4mu")
+nodes/fragment/4/position = Vector2(-160, 920)
+nodes/fragment/5/node = SubResource("VisualShaderNodeTexture_pl0c4")
+nodes/fragment/5/position = Vector2(-160, 680)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 3, 0, 0, 1, 4, 0, 0, 8, 5, 0, 0, 3)

@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://b6x0v0a6264hv"]
+
+[ext_resource type="Texture2D" uid="uid://b8s04yf3krem6" path="res://assets/Metal024_2K-JPG/Metal024_2K-JPG_NormalGL.jpg" id="1_xuixv"]
+[ext_resource type="Texture2D" uid="uid://bvvd421iv1sw7" path="res://assets/Metal024_2K-JPG/Metal024_2K-JPG_Roughness.jpg" id="2_675ic"]
+
+[resource]
+metallic = 1.0
+roughness_texture = ExtResource("2_675ic")
+normal_enabled = true
+normal_texture = ExtResource("1_xuixv")

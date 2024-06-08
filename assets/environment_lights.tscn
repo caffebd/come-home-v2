@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://dplf8d8w78la4"]
+
+[ext_resource type="Script" path="res://scripts/environment_lights.gd" id="1_aub4m"]
+[ext_resource type="Environment" uid="uid://bvm7cbs5joq26" path="res://assets/env/env_day.tres" id="2_6q75a"]
+
+[node name="environment" type="Node3D"]
+script = ExtResource("1_aub4m")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_6q75a")
+
+[node name="sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.9827, -0.0917609, -0.160874, -1.66582e-09, -0.868631, 0.495459, -0.185204, -0.486887, -0.853604, -6.678, 2.75738, -2.17394)
+visible = false
+light_color = Color(0.849231, 0.717222, 0.557243, 1)
+light_energy = 0.17
+light_volumetric_fog_energy = 2.75
+light_bake_mode = 1
+shadow_enabled = true
+shadow_bias = 0.012
+directional_shadow_mode = 0
+
+[node name="moon" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.533134, 0.681998, -0.500646, 0.684547, -2.99225e-08, 0.728969, 0.497155, -0.731354, -0.46686, -6.678, 2.75738, -2.17394)
+visible = false
+light_color = Color(0.881267, 0.86462, 0.766125, 1)
+light_energy = 0.089
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+directional_shadow_mode = 0

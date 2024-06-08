@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://b40wa4i8pv1t3"]
+
+[ext_resource type="PackedScene" uid="uid://bwfiq4gsdr5du" path="res://assets/imported/logLong.glb" id="1_3gady"]
+[ext_resource type="Material" uid="uid://dpnir2tq175wl" path="res://assets/log_1.tres" id="2_7uw6o"]
+[ext_resource type="Material" uid="uid://doqlt0rpoyuy3" path="res://assets/loog_cap.tres" id="3_5pjwk"]
+
+[node name="logLong" instance=ExtResource("1_3gady")]
+
+[node name="log long" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_7uw6o")
+surface_material_override/1 = ExtResource("3_5pjwk")

@@ -1,0 +1,112 @@
+[gd_scene load_steps=11 format=3 uid="uid://dattqn1n4l0yo"]
+
+[ext_resource type="Script" path="res://luke/scripts_luke/hiding_bush.gd" id="1_nu618"]
+[ext_resource type="ArrayMesh" uid="uid://bu8jhukrcqhfb" path="res://assets/foliage/shrub5/shrub5_LOD0.res" id="2_fruh4"]
+[ext_resource type="Shader" uid="uid://b1ys2ynsclftw" path="res://assets/materials/area_sphere.tres" id="2_udbdt"]
+[ext_resource type="Script" path="res://luke/scripts_luke/hiding_place.gd" id="3_qsnly"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c0set"]
+render_priority = 0
+shader = ExtResource("2_udbdt")
+
+[sub_resource type="SphereMesh" id="SphereMesh_rh1xg"]
+material = SubResource("ShaderMaterial_c0set")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3kack"]
+
+[sub_resource type="Animation" id="Animation_aq64t"]
+resource_name = "light_pulse"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BushLight:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.75, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.03333, 2)
+}
+
+[sub_resource type="Animation" id="Animation_jkonx"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BushLight:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r0edq"]
+_data = {
+"RESET": SubResource("Animation_jkonx"),
+"light_pulse": SubResource("Animation_aq64t")
+}
+
+[node name="HidingBush" type="Node3D"]
+script = ExtResource("1_nu618")
+
+[node name="areaSphere" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.98861, 0, 0, 0, 1.98861, 0, 0, 0, 1.98861, 0.0612873, 0.0865411, -0.127896)
+visible = false
+mesh = SubResource("SphereMesh_rh1xg")
+
+[node name="shrub5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.381974, -0.381262, -0.137998)
+mesh = ExtResource("2_fruh4")
+
+[node name="shrub6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0363545, -0.381262, 0.274493)
+mesh = ExtResource("2_fruh4")
+
+[node name="shrub7" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0363545, -0.381262, -0.419706)
+mesh = ExtResource("2_fruh4")
+
+[node name="shrub8" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38636, -0.369898, 0.0735497)
+mesh = ExtResource("2_fruh4")
+
+[node name="shrub9" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.299957, -0.173404, 0.404131)
+mesh = ExtResource("2_fruh4")
+
+[node name="shrub10" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.299957, -0.173404, -0.418241)
+mesh = ExtResource("2_fruh4")
+
+[node name="shrub11" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.288064, -0.173404, -0.418241)
+mesh = ExtResource("2_fruh4")
+
+[node name="shrub12" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.247086, -0.0319704, 0.242724)
+mesh = ExtResource("2_fruh4")
+
+[node name="HidingPlace" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0278093)
+script = ExtResource("3_qsnly")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HidingPlace"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0021807, -0.0041135, -0.0371733)
+shape = SubResource("BoxShape3D_3kack")
+
+[node name="BushLight" type="OmniLight3D" parent="."]
+light_energy = 0.0
+omni_range = 1.5
+
+[node name="LightAnim" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_r0edq")
+}
+
+[connection signal="body_entered" from="HidingPlace" to="HidingPlace" method="_on_body_entered"]
+[connection signal="body_exited" from="HidingPlace" to="HidingPlace" method="_on_body_exited"]

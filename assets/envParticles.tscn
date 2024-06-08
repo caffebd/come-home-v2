@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://vpn5x5qaq4su"]
+
+[ext_resource type="Texture2D" uid="uid://c0bnydjpajh8" path="res://assets/textures/orbAlbedo.png" id="1_elb6d"]
+
+[sub_resource type="Gradient" id="Gradient_7o822"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pu5xv"]
+gradient = SubResource("Gradient_7o822")
+
+[sub_resource type="Curve" id="Curve_d82xb"]
+_data = [Vector2(0.003125, 0.622642), 0.315012, 0.315012, 0, 0, Vector2(0.446875, 0.667925), 0.0, 0.0, 0, 0, Vector2(1, 0.381132), -0.818676, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_tiggh"]
+curve = SubResource("Curve_d82xb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_efeh0"]
+emission_shape = 1
+emission_sphere_radius = 14.36
+angle_max = 360.0
+direction = Vector3(5.65, 0, 0)
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 75.13
+radial_accel_max = 75.13
+scale_min = 3.0
+scale_max = 4.75
+scale_curve = SubResource("CurveTexture_tiggh")
+color = Color(0, 0, 0, 1)
+color_ramp = SubResource("GradientTexture1D_pu5xv")
+turbulence_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cf8o5"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("1_elb6d")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_pi8eo"]
+material = SubResource("StandardMaterial3D_cf8o5")
+size = Vector2(0.08, 0.08)
+
+[node name="envParticles" type="Node3D"]
+
+[node name="envParticles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0144255, 0.0383867, 0.0454114)
+amount = 50
+speed_scale = 0.05
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_efeh0")
+draw_pass_1 = SubResource("QuadMesh_pi8eo")

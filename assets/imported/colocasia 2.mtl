@@ -1,0 +1,20 @@
+# Wavefront Object Material File
+# Generated using SpeedTree tools
+
+newmtl colocasia_leaves_Mat
+map_Kd colocasia_leaves.jpg
+map_d colocasia_leaves_Opacity.jpg
+map_bump colocasia_leaves_Normal.jpg
+bump colocasia_leaves_Normal.jpg -bm 1
+Ns 128
+illum 2
+
+
+newmtl stem_Mat
+map_d 
+map_bump 
+bump  -bm 1
+Ns 128
+illum 2
+
+

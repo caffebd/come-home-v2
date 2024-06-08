@@ -1,0 +1,77 @@
+[gd_resource type="VisualShader" load_steps=9 format=3 uid="uid://d18yqxg8kjwg1"]
+
+[ext_resource type="Texture2D" uid="uid://jktkkswr76gs" path="res://assets/imported/colocasia_leaves.jpg" id="1_nib2s"]
+[ext_resource type="Texture2D" uid="uid://doe4kh1bbr65l" path="res://assets/imported/colocasia_leaves_Normal.jpg" id="2_q5kys"]
+[ext_resource type="Texture2D" uid="uid://b01r7gh4n54fb" path="res://assets/imported/colocasia_leaves_Opacity.jpg" id="3_biymh"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_xpry2"]
+texture = ExtResource("1_nib2s")
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_cff7s"]
+texture = ExtResource("2_q5kys")
+texture_type = 2
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_2pw3g"]
+texture = ExtResource("3_biymh")
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_r7fuy"]
+constant = Color(0.100156, 0.101647, 0.0250478, 1)
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_3jv80"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1), 2, Vector3(0.2, 0.2, 0.2)]
+op_type = 3
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_lambert, specular_schlick_ggx, depth_prepass_alpha;
+
+uniform sampler2D tex_frg_2 : source_color;
+uniform sampler2D tex_frg_4;
+uniform sampler2D tex_frg_3 : hint_normal;
+
+
+
+void fragment() {
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, UV);
+
+
+// ColorConstant:5
+	vec4 n_out5p0 = vec4(0.100156, 0.101647, 0.025048, 1.000000);
+
+
+// Mix:6
+	vec3 n_in6p2 = vec3(0.20000, 0.20000, 0.20000);
+	vec3 n_out6p0 = mix(vec3(n_out2p0.xyz), vec3(n_out5p0.xyz), n_in6p2);
+
+
+// Texture2D:4
+	vec4 n_out4p0 = texture(tex_frg_4, UV);
+
+
+// Texture2D:3
+	vec4 n_out3p0 = texture(tex_frg_3, UV);
+
+
+// Output:0
+	ALBEDO = n_out6p0;
+	ALPHA = n_out4p0.x;
+	NORMAL_MAP = vec3(n_out3p0.xyz);
+
+
+}
+"
+modes/cull = 2
+flags/depth_prepass_alpha = true
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_xpry2")
+nodes/fragment/2/position = Vector2(-240, -100)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_cff7s")
+nodes/fragment/3/position = Vector2(60, 480)
+nodes/fragment/4/node = SubResource("VisualShaderNodeTexture_2pw3g")
+nodes/fragment/4/position = Vector2(60, 680)
+nodes/fragment/5/node = SubResource("VisualShaderNodeColorConstant_r7fuy")
+nodes/fragment/5/position = Vector2(-240, 200)
+nodes/fragment/6/node = SubResource("VisualShaderNodeMix_3jv80")
+nodes/fragment/6/position = Vector2(80, 20)
+nodes/fragment/connections = PackedInt32Array(3, 0, 0, 9, 4, 0, 0, 1, 2, 0, 6, 0, 5, 0, 6, 1, 6, 0, 0, 0)

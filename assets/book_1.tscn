@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://gno2coptrtmq"]
+
+[ext_resource type="PackedScene" uid="uid://do6kdcymhve6j" path="res://assets/imported/book1.glb" id="1_a5sij"]
+[ext_resource type="Material" uid="uid://co042sjq1rn5" path="res://assets/materials/bookcover_1.tres" id="2_vuupw"]
+[ext_resource type="Material" uid="uid://c1mi72dkkfr3s" path="res://assets/materials/bookPages.tres" id="3_374xp"]
+
+[node name="book1" instance=ExtResource("1_a5sij")]
+
+[node name="TexturesCom_BookCovers0152_2_masked_S" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_vuupw")
+surface_material_override/1 = ExtResource("3_374xp")

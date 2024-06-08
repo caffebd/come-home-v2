@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5dye4vccuc8y"]
+
+[ext_resource type="PackedScene" uid="uid://cvf46p7u51qeg" path="res://assets/imported/fishingItem4.glb" id="1_q72yi"]
+[ext_resource type="Material" uid="uid://d3d0gcoq1ts65" path="res://assets/materials/wood_1.tres" id="2_4b053"]
+
+[node name="fishingItem4" instance=ExtResource("1_q72yi")]
+
+[node name="Cube_001" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_4b053")
+surface_material_override/1 = ExtResource("2_4b053")

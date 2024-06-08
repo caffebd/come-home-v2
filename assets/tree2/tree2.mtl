@@ -1,0 +1,21 @@
+# Wavefront Object Material File
+# Generated using SpeedTree tools
+
+newmtl bark_Mat
+map_Kd bark.jpg
+map_d 
+map_bump bark_Normal.jpg
+bump bark_Normal.jpg -bm 1
+Ns 128
+illum 2
+
+
+newmtl leaves_Mat
+map_Kd leaves.jpg
+map_d leaves_Opacity.jpg
+map_bump leaves_Normal.jpg
+bump leaves_Normal.jpg -bm 1
+Ns 128
+illum 2
+
+

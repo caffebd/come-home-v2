@@ -1,0 +1,158 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfc7h6oq322mj"]
+
+[ext_resource type="Script" path="res://luke/scripts_luke/chapters_menu.gd" id="1_uxhs6"]
+[ext_resource type="Texture2D" uid="uid://blap33cplpujk" path="res://luke/assets_luke/miscImg3.jpg" id="1_wdhfi"]
+[ext_resource type="FontFile" uid="uid://d01fn2tomtoet" path="res://assets/fonts/Ranade_TTF/Ranade-Variable.ttf" id="3_t808y"]
+[ext_resource type="Texture2D" uid="uid://dgp8i4enay2cb" path="res://luke/assets_luke/menu/logo.png" id="4_aysr4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_na6do"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="ChaptersMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uxhs6")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -2509.0
+offset_top = -23.0
+offset_right = 2348.0
+offset_bottom = 1136.0
+texture = ExtResource("1_wdhfi")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.556863)
+
+[node name="The Path" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1563.0
+offset_top = 144.0
+offset_right = 1815.0
+offset_bottom = 219.0
+theme_override_fonts/font = ExtResource("3_t808y")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_na6do")
+text = "A forest
+"
+alignment = 2
+
+[node name="Clearing" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1552.0
+offset_top = 281.0
+offset_right = 1833.0
+offset_bottom = 356.0
+theme_override_fonts/font = ExtResource("3_t808y")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_na6do")
+text = "A surprise"
+alignment = 2
+
+[node name="Lost" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1555.0
+offset_top = 424.0
+offset_right = 1822.0
+offset_bottom = 499.0
+theme_override_fonts/font = ExtResource("3_t808y")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_na6do")
+text = "A lost boy
+"
+alignment = 2
+
+[node name="Choice" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1567.0
+offset_top = 561.0
+offset_right = 1819.0
+offset_bottom = 636.0
+theme_override_fonts/font = ExtResource("3_t808y")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_na6do")
+text = "A choice
+"
+alignment = 2
+
+[node name="House" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1579.0
+offset_top = 684.0
+offset_right = 1816.0
+offset_bottom = 759.0
+theme_override_fonts/font = ExtResource("3_t808y")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_na6do")
+text = "A house
+"
+alignment = 2
+
+[node name="Cave" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1624.0
+offset_top = 810.0
+offset_right = 1813.0
+offset_bottom = 885.0
+theme_override_fonts/font = ExtResource("3_t808y")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_na6do")
+text = "A cave
+"
+alignment = 2
+
+[node name="Final" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1498.0
+offset_top = 939.0
+offset_right = 1829.0
+offset_bottom = 1014.0
+theme_override_fonts/font = ExtResource("3_t808y")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_na6do")
+text = "A beginning"
+alignment = 2
+
+[node name="Menu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 927.0
+offset_right = 279.0
+offset_bottom = 1002.0
+theme_override_fonts/font = ExtResource("3_t808y")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_na6do")
+text = "menu"
+alignment = 2
+
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -808.0
+offset_top = 112.0
+offset_right = 252.0
+offset_bottom = 335.0
+grow_horizontal = 2
+texture = ExtResource("4_aysr4")
+
+[connection signal="pressed" from="The Path" to="." method="_on_the_path_pressed"]
+[connection signal="pressed" from="Clearing" to="." method="_on_clearing_pressed"]
+[connection signal="pressed" from="Lost" to="." method="_on_lost_pressed"]
+[connection signal="pressed" from="Choice" to="." method="_on_choice_pressed"]
+[connection signal="pressed" from="House" to="." method="_on_house_pressed"]
+[connection signal="pressed" from="Cave" to="." method="_on_cave_pressed"]
+[connection signal="pressed" from="Final" to="." method="_on_final_pressed"]
+[connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]

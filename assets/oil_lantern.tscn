@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://ja6l726ijpr7"]
+
+[ext_resource type="PackedScene" uid="uid://dai716eg36gpw" path="res://assets/imported/oilLantern.glb" id="1_41cdn"]
+[ext_resource type="Material" uid="uid://evumxl57lrtr" path="res://assets/materials/metal_1_alpha.tres" id="2_7i8xf"]
+[ext_resource type="Material" uid="uid://csirgefqkqg7j" path="res://assets/glass.tres" id="2_tp6nu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ilugk"]
+transparency = 1
+albedo_color = Color(1, 0.633333, 0, 1)
+emission_enabled = true
+emission = Color(1, 0.635294, 0, 1)
+emission_energy_multiplier = 5.67
+
+[node name="oilLantern" instance=ExtResource("1_41cdn")]
+
+[node name="Sphere" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ilugk")
+surface_material_override/1 = ExtResource("2_tp6nu")
+surface_material_override/2 = ExtResource("2_7i8xf")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12221, 0)
+light_color = Color(0.98, 0.852437, 0.2842, 1)
+shadow_enabled = true
+omni_range = 6.22795

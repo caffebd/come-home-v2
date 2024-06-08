@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqotoryneq4xt"]
+
+[ext_resource type="ArrayMesh" uid="uid://bhs0i4vb34m5j" path="res://assets/imported/colocasia 1.obj" id="1_ighcj"]
+[ext_resource type="Shader" uid="uid://d18yqxg8kjwg1" path="res://assets/materials/shaderMat/colocasia_1.tres" id="2_jox68"]
+[ext_resource type="Material" uid="uid://dvia5wjjutlm7" path="res://assets/materials/colocasia_stem.tres" id="3_ioqys"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_exy83"]
+render_priority = 0
+shader = ExtResource("2_jox68")
+
+[node name="colocasia1" type="Node3D"]
+
+[node name="Colocasia1" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_ighcj")
+surface_material_override/0 = SubResource("ShaderMaterial_exy83")
+surface_material_override/1 = ExtResource("3_ioqys")

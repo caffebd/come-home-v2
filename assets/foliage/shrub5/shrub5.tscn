@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgwno2v6dodas"]
+
+[ext_resource type="ArrayMesh" uid="uid://bu8jhukrcqhfb" path="res://assets/foliage/shrub5/shrub5_LOD0.res" id="1_whsm8"]
+
+[node name="shrub5" type="Node3D"]
+
+[node name="shrub5" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_whsm8")

@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://dinrsx6015nr6"]
+
+[ext_resource type="Script" path="res://scripts/grassInstance.gd" id="1_7kdb4"]
+[ext_resource type="ArrayMesh" uid="uid://8jtw3ou8x0rp" path="res://assets/foliage/grass1/grass1_LOD0.res" id="2_7qerm"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_p7xat"]
+size = Vector2(200, 200)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_cn564"]
+data = PackedVector3Array(100, 0, 100, -100, 0, 100, 100, 0, -100, -100, 0, 100, -100, 0, -100, 100, 0, -100)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1g823"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_abb5y"]
+noise = SubResource("FastNoiseLite_1g823")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_p7xat")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+visible = false
+shape = SubResource("ConcavePolygonShape3D_cn564")
+
+[node name="Instancer" type="Marker3D" parent="." node_paths=PackedStringArray("player_node")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.414, 0)
+script = ExtResource("1_7kdb4")
+player_node = NodePath("../Player")
+instance_amount = 200
+heightmap = SubResource("NoiseTexture2D_abb5y")
+instance_mesh = ExtResource("2_7qerm")
+
+[node name="Player" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.2046, 0)

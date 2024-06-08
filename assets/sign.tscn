@@ -1,0 +1,17 @@
+[gd_scene load_steps=6 format=3 uid="uid://dh4a73mmfh4vc"]
+
+[ext_resource type="PackedScene" uid="uid://b4nk8vmg2dggv" path="res://assets/imported/sign.glb" id="1_rujl3"]
+[ext_resource type="Texture2D" uid="uid://chyfsj1md7w22" path="res://assets/textures/sign/haor-albedo.jpg" id="2_kxe2u"]
+[ext_resource type="Texture2D" uid="uid://bansvuoskp8j0" path="res://assets/textures/sign/haor-normal.jpg" id="3_b5r5s"]
+[ext_resource type="Texture2D" uid="uid://be6h2o4dhq8yl" path="res://assets/textures/sign/haor-rough.jpg" id="4_lsom1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y87pd"]
+albedo_texture = ExtResource("2_kxe2u")
+roughness_texture = ExtResource("4_lsom1")
+normal_enabled = true
+normal_texture = ExtResource("3_b5r5s")
+
+[node name="sign" instance=ExtResource("1_rujl3")]
+
+[node name="haor-albedo" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_y87pd")

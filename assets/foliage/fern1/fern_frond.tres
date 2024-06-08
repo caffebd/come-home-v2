@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bdmltk77on65e"]
+
+[ext_resource type="Texture2D" uid="uid://bmrkl1lsesqsm" path="res://assets/foliage/fern1/fern1_frond_albedo.png" id="1_3380u"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.3
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_3380u")

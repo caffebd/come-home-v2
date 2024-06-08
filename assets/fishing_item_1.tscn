@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7sqjejyfp2m5"]
+
+[ext_resource type="PackedScene" uid="uid://cwjo83ih7hvws" path="res://assets/imported/fishingItem1.glb" id="1_ta1wo"]
+[ext_resource type="Material" uid="uid://d3d0gcoq1ts65" path="res://assets/materials/wood_1.tres" id="2_2kgoe"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jheep"]
+radius = 0.865
+
+[node name="fishingItem1" instance=ExtResource("1_ta1wo")]
+
+[node name="BezierCurve_002" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_2kgoe")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.135651, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.143616, 0)
+shape = SubResource("CylinderShape3D_jheep")

@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://lv7x16087tcc"]
+
+[ext_resource type="PackedScene" uid="uid://i1a4pjfbgk8" path="res://assets/imported/fern2.glb" id="1_cd4tv"]
+[ext_resource type="Material" uid="uid://dxvd23akn6xks" path="res://assets/materials/fern.tres" id="2_3y7rv"]
+
+[node name="fern2" instance=ExtResource("1_cd4tv")]
+
+[node name="TexturesCom_Forest_LadyFern05_2K_alpha_011" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_3y7rv")
+
+[node name="TexturesCom_Forest_LadyFern05_2K_alpha_012" parent="." index="1"]
+surface_material_override/0 = ExtResource("2_3y7rv")
+
+[node name="TexturesCom_Forest_LadyFern05_2K_alpha_014" parent="." index="2"]
+surface_material_override/0 = ExtResource("2_3y7rv")
+
+[node name="TexturesCom_Forest_LadyFern05_2K_alpha_015" parent="." index="3"]
+surface_material_override/0 = ExtResource("2_3y7rv")
+
+[node name="TexturesCom_Forest_LadyFern05_2K_alpha_016" parent="." index="4"]
+surface_material_override/0 = ExtResource("2_3y7rv")
+
+[node name="TexturesCom_Forest_LadyFern05_2K_alpha_018" parent="." index="5"]
+surface_material_override/0 = ExtResource("2_3y7rv")
+
+[node name="TexturesCom_Forest_LadyFern05_2K_alpha_019" parent="." index="6"]
+surface_material_override/0 = ExtResource("2_3y7rv")
+
+[node name="TexturesCom_Forest_LadyFern05_2K_alpha_020" parent="." index="7"]
+surface_material_override/0 = ExtResource("2_3y7rv")
+
+[node name="TexturesCom_Forest_LadyFern05_2K_alpha_013" parent="." index="8"]
+surface_material_override/0 = ExtResource("2_3y7rv")
+
+[node name="TexturesCom_Forest_LadyFern05_2K_alpha_021" parent="." index="9"]
+surface_material_override/0 = ExtResource("2_3y7rv")

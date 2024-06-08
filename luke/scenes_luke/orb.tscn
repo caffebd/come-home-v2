@@ -1,0 +1,127 @@
+[gd_scene load_steps=10 format=3 uid="uid://djwe3ra6fh80c"]
+
+[ext_resource type="Script" path="res://luke/scripts_luke/orb.gd" id="1_7rnqk"]
+[ext_resource type="Material" uid="uid://bylldmihjg34q" path="res://assets/materials/orb.tres" id="2_fb1n4"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xbmpw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xuvvv"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_wt2ko"]
+material = SubResource("StandardMaterial3D_xuvvv")
+
+[sub_resource type="Animation" id="Animation_fd3tn"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_4drgr"]
+resource_name = "hover"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.5, 3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.242165, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.5, 3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.5, 3)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o1mau"]
+_data = {
+"RESET": SubResource("Animation_fd3tn"),
+"hover": SubResource("Animation_4drgr")
+}
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ejtrp"]
+material = ExtResource("2_fb1n4")
+orientation = 2
+
+[node name="Orb" type="CharacterBody3D" groups=["orb"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_7rnqk")
+
+[node name="OrbCollider" type="CollisionShape3D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("SphereShape3D_xbmpw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.569662, 0, 0, 0, 0.569662, 0, 0, 0, 0.569662, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_wt2ko")
+
+[node name="SenseTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
+
+[node name="OrbHover" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o1mau")
+}
+
+[node name="orbplane" type="MeshInstance3D" parent="."]
+layers = 512
+mesh = SubResource("PlaneMesh_ejtrp")
+
+[connection signal="timeout" from="SenseTimer" to="." method="_on_sense_timer_timeout"]

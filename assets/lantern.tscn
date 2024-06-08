@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://454gkuq6bbiy"]
+
+[ext_resource type="PackedScene" uid="uid://c22ec0q1o03u2" path="res://assets/imported/lantern.glb" id="1_0rbem"]
+[ext_resource type="Material" uid="uid://brvx73drqe38a" path="res://assets/materials/metal_1.tres" id="2_hc7xa"]
+[ext_resource type="Material" uid="uid://c2vank5gouwgi" path="res://assets/lantern_light.tres" id="3_0ft8h"]
+
+[node name="lantern_1" instance=ExtResource("1_0rbem")]
+
+[node name="Cylinder_051" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00120091, 0.154019, -0.00252426)
+surface_material_override/0 = ExtResource("2_hc7xa")
+surface_material_override/1 = ExtResource("3_0ft8h")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.449781, 0)
+light_color = Color(0.87, 0.73776, 0.4524, 1)
+light_energy = 0.6
+shadow_enabled = true
+omni_range = 4.34083

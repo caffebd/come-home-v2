@@ -1,0 +1,98 @@
+[gd_scene load_steps=8 format=3 uid="uid://d3x5pss7risjw"]
+
+[ext_resource type="Script" path="res://luke/scripts_luke/menu.gd" id="1_c83km"]
+[ext_resource type="Texture2D" uid="uid://cweg1lnfcxn5i" path="res://luke/assets_luke/menu/start-screen-bg.png" id="2_7sxtw"]
+[ext_resource type="FontFile" uid="uid://d01fn2tomtoet" path="res://assets/fonts/Ranade_TTF/Ranade-Variable.ttf" id="3_xfy72"]
+[ext_resource type="Texture2D" uid="uid://dgp8i4enay2cb" path="res://luke/assets_luke/menu/logo.png" id="4_rfq5v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3mubf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wui3o"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j0rn1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c83km")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_7sxtw")
+
+[node name="ChaptersButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = 251.0
+offset_right = 125.0
+offset_bottom = 323.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_xfy72")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_3mubf")
+text = "Chapters"
+
+[node name="ExitBtn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 74.0
+offset_top = -152.0
+offset_right = 324.0
+offset_bottom = -80.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_xfy72")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_wui3o")
+text = "exit"
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.5
+offset_top = 133.0
+offset_right = 105.5
+offset_bottom = 205.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_xfy72")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_j0rn1")
+text = "PLAY
+"
+
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -530.0
+offset_top = 80.0
+offset_right = 530.0
+offset_bottom = 303.0
+grow_horizontal = 2
+texture = ExtResource("4_rfq5v")
+
+[connection signal="pressed" from="ChaptersButton" to="." method="_on_chapters_button_pressed"]
+[connection signal="pressed" from="ExitBtn" to="." method="_on_exit_btn_pressed"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

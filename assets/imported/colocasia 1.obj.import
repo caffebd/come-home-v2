@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bhs0i4vb34m5j"
+path="res://.godot/imported/colocasia 1.obj-05da36aca8ceba900c5424eba67359ae.mesh"
+
+[deps]
+
+files=["res://.godot/imported/colocasia 1.obj-05da36aca8ceba900c5424eba67359ae.mesh"]
+
+source_file="res://assets/imported/colocasia 1.obj"
+dest_files=["res://.godot/imported/colocasia 1.obj-05da36aca8ceba900c5424eba67359ae.mesh", "res://.godot/imported/colocasia 1.obj-05da36aca8ceba900c5424eba67359ae.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

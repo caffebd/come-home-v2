@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://degk2uih2lc5u"]
+
+[ext_resource type="Script" path="res://luke/scripts_luke/global_scene.gd" id="1_83qdu"]
+[ext_resource type="AudioStream" uid="uid://oc516orgxhch" path="res://luke/assets_luke/audio_luke/intro_loop.mp3" id="2_mifdl"]
+[ext_resource type="AudioStream" uid="uid://p452w050vlbj" path="res://luke/assets_luke/audio_luke/night_path_music_drone.mp3" id="3_ewfyi"]
+[ext_resource type="AudioStream" uid="uid://x8kumajmhao0" path="res://luke/assets_luke/audio_luke/saif_theme.mp3" id="4_p4qiw"]
+
+[node name="GlobalScene" type="Node3D"]
+script = ExtResource("1_83qdu")
+
+[node name="BgMusic" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_mifdl")
+volume_db = -10.0
+
+[node name="NightPathMusic" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_ewfyi")
+volume_db = -5.0
+
+[node name="SaifTheme" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_p4qiw")
+volume_db = -10.0

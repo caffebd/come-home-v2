@@ -1,0 +1,935 @@
+[gd_scene load_steps=31 format=3 uid="uid://cm3d1u3ihuwtd"]
+
+[ext_resource type="Script" path="res://luke/scripts_luke/hud.gd" id="1_v33x2"]
+[ext_resource type="Texture2D" uid="uid://wynt0hi00qc8" path="res://assets/ui/target.png" id="2_4bb86"]
+[ext_resource type="FontFile" uid="uid://duirhuy7klyp8" path="res://assets/fonts/alagard.ttf" id="4_44lwp"]
+[ext_resource type="Texture2D" uid="uid://c0cttvuoev0gp" path="res://luke/assets_luke/ui/mouse_rbtn_small.png" id="4_kltda"]
+[ext_resource type="Texture2D" uid="uid://dx6e1rll2wb1h" path="res://luke/assets_luke/ui/mouse_lbtn_small.png" id="4_kouoa"]
+[ext_resource type="FontFile" uid="uid://cnv2p7n8e175w" path="res://assets/fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf" id="4_qs75q"]
+[ext_resource type="Texture2D" uid="uid://twp66mahoeug" path="res://assets/textures/uiPaper.png" id="5_v7k21"]
+[ext_resource type="Texture2D" uid="uid://c28phuu0e0lbq" path="res://luke/assets_luke/ui/crouch_boy_temp.png" id="8_tmj8p"]
+[ext_resource type="Texture2D" uid="uid://c0mg7i5yx3ivn" path="res://luke/assets_luke/ui/fox_foot_temp.png" id="9_yu3tb"]
+[ext_resource type="FontFile" uid="uid://d01fn2tomtoet" path="res://assets/fonts/Ranade_TTF/Ranade-Variable.ttf" id="10_1hpeo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s4kd3"]
+bg_color = Color(0.929412, 0.886275, 0.788235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slewn"]
+content_margin_left = 20.0
+content_margin_right = 20.0
+bg_color = Color(0, 0, 0, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nqx6e"]
+content_margin_left = 20.0
+content_margin_right = 20.0
+bg_color = Color(0, 0, 0, 0.6)
+
+[sub_resource type="Animation" id="Animation_br21l"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mouse click:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("mouse click:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("mouse click:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("mouse click:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_hwtlg"]
+resource_name = "mouse_pulse"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mouse click:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.03333, 4)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("mouse click:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.03333, 4)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("mouse click:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.03333, 4)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("mouse click:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.470588, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.470588, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.03333, 4)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yatjs"]
+_data = {
+"RESET": SubResource("Animation_br21l"),
+"mouse_pulse": SubResource("Animation_hwtlg")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8cbt3"]
+content_margin_left = 20.0
+content_margin_right = 20.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_hxk61"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopLid:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TopLid:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-560, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BottomLid:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BottomLid:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1082, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_cnij3"]
+resource_name = "close"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopLid:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TopLid:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-560, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BottomLid:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BottomLid:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1082, -0.25, 0, 0.25, 0, 547, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_11xft"]
+resource_name = "open"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopLid:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TopLid:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -560, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BottomLid:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BottomLid:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(547, -0.25, 0, 0.25, 0, 1082, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e38kj"]
+_data = {
+"RESET": SubResource("Animation_hxk61"),
+"close": SubResource("Animation_cnij3"),
+"open": SubResource("Animation_11xft")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7g6h0"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3kmkp"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ovol"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oeo0l"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ama0l"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_euta1"]
+bg_color = Color(0, 0, 0, 0.639216)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_apkkx"]
+bg_color = Color(0.639216, 0.639216, 0.639216, 0.921569)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yi8fn"]
+bg_color = Color(0.141176, 0.141176, 0.141176, 0.6)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.533037, 0.533037, 0.533036, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nojpq"]
+bg_color = Color(0.912289, 0.912289, 0.912289, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.533333, 0.533333, 0.533333, 1)
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_v33x2")
+
+[node name="ShowLeftClick" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_top = -531.0
+offset_right = 128.0
+offset_bottom = -381.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_kouoa")
+
+[node name="ShowRightClick" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_top = -531.0
+offset_right = 128.0
+offset_bottom = -381.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_kltda")
+
+[node name="target" type="TextureRect" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.588235)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.5
+offset_top = -7.5
+offset_right = 7.5
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4bb86")
+expand_mode = 2
+
+[node name="Inventory" type="GridContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -30.5
+offset_top = -123.0
+offset_right = 30.5
+offset_bottom = -67.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/h_separation = 5
+columns = 7
+
+[node name="Dialogue" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -319.5
+offset_top = -270.0
+offset_right = 319.5
+offset_bottom = -160.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_qs75q")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_s4kd3")
+text = "Got to fix it yourself. Here's a screwdriver. Good luck."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PlayerAvatar" type="TextureRect" parent="Dialogue"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = -53.5
+offset_top = 1.0
+offset_right = -3.5
+offset_bottom = 51.0
+
+[node name="CallAvatar" type="TextureRect" parent="Dialogue"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = -68.5
+offset_top = 55.0
+offset_right = -5.5
+offset_bottom = 105.0
+
+[node name="NoteText" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -870.0
+offset_top = -270.0
+offset_right = -389.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/bold_italics_font_size = 48
+theme_override_font_sizes/italics_font_size = 48
+theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/bold_font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_s4kd3")
+bbcode_enabled = true
+text = "You should have taken the stairs my friend."
+autowrap_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextBackground" type="ColorRect" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -131.0
+offset_bottom = -131.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 0.870588)
+
+[node name="Speech" type="Label" parent="TextBackground"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -194.5
+offset_top = -47.5
+offset_right = 194.5
+offset_bottom = 48.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_constants/line_spacing = 12
+theme_override_fonts/font = ExtResource("4_qs75q")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_slewn")
+text = "Come on Saif, keep up."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NarrationBackground" type="ColorRect" parent="."]
+unique_name_in_owner = true
+auto_translate_mode = 1
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 160.0
+offset_bottom = 160.0
+grow_horizontal = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Narration" type="Label" parent="NarrationBackground"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = -48.0
+offset_right = 170.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = 12
+theme_override_fonts/font = ExtResource("4_qs75q")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_nqx6e")
+text = "I heard foor steps v"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MouseBackground" type="ColorRect" parent="NarrationBackground/Narration"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 13.0
+offset_top = -34.0
+offset_right = 64.0
+offset_bottom = 35.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="mouse click" type="TextureRect" parent="NarrationBackground/Narration"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 9.0
+offset_top = -27.0
+offset_right = 599.0
+offset_bottom = 523.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_kouoa")
+
+[node name="MouseAnimNarration" type="AnimationPlayer" parent="NarrationBackground/Narration/mouse click"]
+unique_name_in_owner = true
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_yatjs")
+}
+
+[node name="InfoToPlayer" type="ColorRect" parent="."]
+unique_name_in_owner = true
+auto_translate_mode = 1
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 160.0
+offset_bottom = 160.0
+grow_horizontal = 2
+color = Color(0.580392, 0.184314, 0.721569, 0)
+
+[node name="InfoToPlayerText" type="Label" parent="InfoToPlayer"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -227.0
+offset_top = -48.0
+offset_right = 227.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = 12
+theme_override_fonts/font = ExtResource("4_qs75q")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_8cbt3")
+text = "I had to find a way to distract"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MouseBackground" type="ColorRect" parent="InfoToPlayer/InfoToPlayerText"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 12.0
+offset_top = -34.0
+offset_right = 52.0
+offset_bottom = 36.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="mouse click" type="TextureRect" parent="InfoToPlayer/InfoToPlayerText/MouseBackground"]
+modulate = Color(1, 1, 1, 0.984132)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -27.0
+offset_right = 541.0
+offset_bottom = 523.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_kouoa")
+
+[node name="MouseAnimInfo" type="AnimationPlayer" parent="InfoToPlayer/InfoToPlayerText/MouseBackground/mouse click"]
+unique_name_in_owner = true
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_yatjs")
+}
+
+[node name="TopLid" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -560.0
+offset_right = 15360.0
+offset_bottom = 7540.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BottomLid" type="ColorRect" parent="."]
+auto_translate_mode = 1
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1082.0
+offset_right = 15360.0
+offset_bottom = 9186.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CloseEyes" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_e38kj")
+}
+
+[node name="FPS" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_top = 20.0
+offset_right = -29.0
+offset_bottom = 43.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("4_44lwp")
+theme_override_font_sizes/font_size = 50
+text = "123"
+
+[node name="ReadingPage" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 114.0
+offset_top = 64.0
+offset_right = -90.0
+offset_bottom = -67.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_v7k21")
+
+[node name="BookText" type="RichTextLabel" parent="ReadingPage"]
+unique_name_in_owner = true
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 351.0
+offset_top = 207.0
+offset_right = -323.0
+offset_bottom = -156.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_qs75q")
+theme_override_font_sizes/normal_font_size = 45
+text = "I haven’t found him yet but I must be getting close. He was always talking about flying lights but I didn’t believe him.\\n\\nI thought it was just a young child’s imagination but last night I saw one of them for myself. It tried to get closer but it sped away.\\n\\nTonight I will be quicker. I know he must have followed it.\\n\\nI believe the light will take me back to my son."
+
+[node name="ENButton" type="Button" parent="ReadingPage"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 355.0
+offset_top = 120.5
+offset_right = 428.0
+offset_bottom = 176.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_44lwp")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_7g6h0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3kmkp")
+text = "EN"
+
+[node name="BNButton" type="Button" parent="ReadingPage"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 471.0
+offset_top = 121.5
+offset_right = 544.0
+offset_bottom = 177.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_44lwp")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_5ovol")
+theme_override_styles/normal = SubResource("StyleBoxFlat_oeo0l")
+text = "BN
+"
+
+[node name="CloseBtn" type="Button" parent="ReadingPage"]
+layout_mode = 0
+offset_left = 1613.0
+offset_top = 102.5
+offset_right = 1671.0
+offset_bottom = 185.5
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_44lwp")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_ama0l")
+text = "X"
+alignment = 0
+
+[node name="HideTimer" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -156.0
+offset_top = -100.0
+offset_right = 189.0
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(0.5, 0.5)
+theme_override_styles/background = SubResource("StyleBoxFlat_euta1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_apkkx")
+max_value = 6.0
+value = 6.0
+show_percentage = false
+
+[node name="CrouchIcon" type="TextureRect" parent="HideTimer"]
+layout_mode = 0
+offset_left = -53.0
+offset_top = -6.0
+offset_right = 12.0
+offset_bottom = 71.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("8_tmj8p")
+
+[node name="AnimalDistance" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 56.0
+offset_top = -271.0
+offset_right = 106.0
+offset_bottom = 279.0
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_yi8fn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_nojpq")
+max_value = 50.0
+fill_mode = 3
+show_percentage = false
+
+[node name="TextureRect" type="TextureRect" parent="AnimalDistance"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -70.0
+offset_right = 50.0
+offset_bottom = -11.0
+texture = ExtResource("9_yu3tb")
+
+[node name="Cover" type="ColorRect" parent="."]
+auto_translate_mode = 1
+modulate = Color(1, 1, 1, 0)
+visibility_layer = 524289
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Title" type="Label" parent="Cover"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.5
+offset_top = -39.0
+offset_right = 210.5
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_44lwp")
+theme_override_font_sizes/font_size = 82
+text = "Come Home"
+
+[node name="Title2" type="Label" parent="Cover/Title"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -348.0
+offset_top = 67.0
+offset_right = 351.0
+offset_bottom = 145.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_44lwp")
+theme_override_font_sizes/font_size = 50
+text = "Bangla Ghost Stories Chapter 1"
+
+[node name="ExitCover" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0383972, 0.0383972, 0.0383971, 0.839216)
+
+[node name="MenuButton" type="Button" parent="ExitCover"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = 158.5
+offset_right = 130.0
+offset_bottom = 269.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("10_1hpeo")
+theme_override_font_sizes/font_size = 80
+text = "menu"
+
+[connection signal="pressed" from="ReadingPage/ENButton" to="." method="_on_en_button_pressed"]
+[connection signal="pressed" from="ReadingPage/BNButton" to="." method="_on_bn_button_pressed"]
+[connection signal="pressed" from="ReadingPage/CloseBtn" to="." method="_on_close_btn_pressed"]
+[connection signal="pressed" from="ExitCover/MenuButton" to="." method="_on_menu_button_pressed"]

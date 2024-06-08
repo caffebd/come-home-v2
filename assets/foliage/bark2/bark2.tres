@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cijkciescgpfs"]
+
+[ext_resource type="Texture2D" uid="uid://ctmjemnggvhvx" path="res://assets/foliage/bark2/ugblaadn_2K_Albedo.jpg" id="1_eh3gi"]
+[ext_resource type="Texture2D" uid="uid://f80wygdaksmv" path="res://assets/foliage/bark2/ugblaadn_2K_Albedo_Normal.jpg" id="2_vt2mj"]
+
+[resource]
+albedo_texture = ExtResource("1_eh3gi")
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 2.9
+normal_enabled = true
+normal_texture = ExtResource("2_vt2mj")

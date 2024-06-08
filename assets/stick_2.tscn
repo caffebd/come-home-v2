@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv64bgoii6afk"]
+
+[ext_resource type="PackedScene" uid="uid://0odl0hf28ufd" path="res://assets/imported/stick2.glb" id="1_esrfw"]
+[ext_resource type="Material" uid="uid://bcj54kluauoxl" path="res://assets/stick.tres" id="2_1bct3"]
+
+[node name="stick2" instance=ExtResource("1_esrfw")]
+
+[node name="stick2" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_1bct3")

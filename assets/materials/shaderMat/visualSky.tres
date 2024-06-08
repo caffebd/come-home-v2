@@ -1,0 +1,20 @@
+[gd_resource type="VisualShader" load_steps=2 format=3 uid="uid://cq22wfgxbv8ad"]
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_vuixh"]
+
+[resource]
+code = "shader_type sky;
+
+
+
+void sky() {
+}
+"
+graph_offset = Vector2(-214.668, 20.4966)
+mode = 3
+flags/use_half_res_pass = false
+flags/use_quarter_res_pass = false
+flags/disable_fog = false
+flags/use_debanding = false
+nodes/sky/2/node = SubResource("VisualShaderNodeColorConstant_vuixh")
+nodes/sky/2/position = Vector2(158.081, 150.472)

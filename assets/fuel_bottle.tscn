@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://cplkiadbja4ue"]
+
+[ext_resource type="PackedScene" uid="uid://c40wjlx2drvqk" path="res://assets/imported/fuelBottle.glb" id="1_5enun"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xejrc"]
+albedo_color = Color(0.150075, 0.150075, 0.150075, 1)
+
+[sub_resource type="Gradient" id="Gradient_3dj6u"]
+offsets = PackedFloat32Array(0.170068, 0.884354)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_70j7r"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qfyp0"]
+seamless = true
+as_normal_map = true
+color_ramp = SubResource("Gradient_3dj6u")
+noise = SubResource("FastNoiseLite_70j7r")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_golbb"]
+seamless = true
+color_ramp = SubResource("Gradient_3dj6u")
+noise = SubResource("FastNoiseLite_70j7r")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_brfw5"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.137255)
+roughness_texture = SubResource("NoiseTexture2D_golbb")
+normal_scale = 0.32
+normal_texture = SubResource("NoiseTexture2D_qfyp0")
+refraction_enabled = true
+refraction_texture = SubResource("NoiseTexture2D_golbb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qg5sc"]
+albedo_color = Color(0.124557, 0.38602, 0.314316, 1)
+
+[node name="fuelBottle" instance=ExtResource("1_5enun")]
+
+[node name="oil bottle_001" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_xejrc")
+surface_material_override/1 = SubResource("StandardMaterial3D_brfw5")
+surface_material_override/2 = SubResource("StandardMaterial3D_qg5sc")

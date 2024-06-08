@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://fs7drrtc388s"]
+
+[ext_resource type="Texture2D" uid="uid://bfs2i3qu83jyi" path="res://assets/textures/debris_nature_sb1gu1p0/sb1gu1p_2K_Albedo.jpg" id="1_l30il"]
+[ext_resource type="Texture2D" uid="uid://cjdaq7v7lttoi" path="res://assets/textures/debris_nature_sb1gu1p0/sb1gu1p_2K_Normal.jpg" id="2_7kdff"]
+[ext_resource type="Texture2D" uid="uid://bp6uo3jl02eab" path="res://assets/textures/debris_nature_sb1gu1p0/sb1gu1p_2K_Roughness.jpg" id="3_08axo"]
+
+[resource]
+albedo_texture = ExtResource("1_l30il")
+roughness_texture = ExtResource("3_08axo")
+normal_enabled = true
+normal_texture = ExtResource("2_7kdff")
+uv1_scale = Vector3(750, 750, 750)

@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=3 uid="uid://negtfux8wsk8"]
+
+[ext_resource type="PackedScene" uid="uid://bomw8bd1k8hmi" path="res://assets/imported/dadAnim.glb" id="1_oyudx"]
+[ext_resource type="Material" uid="uid://fw684gdjqgg3" path="res://assets/materials/fabric1.tres" id="2_t28vd"]
+[ext_resource type="Texture2D" uid="uid://b2df5kou1oxvu" path="res://assets/textures/headj.jpg" id="3_yf2nd"]
+[ext_resource type="Material" uid="uid://bir2t56223asn" path="res://assets/materials/body.tres" id="4_ufmq3"]
+[ext_resource type="Material" uid="uid://grlp1duag7cb" path="res://assets/materials/shirt.tres" id="5_4rcdr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qwvvm"]
+albedo_texture = ExtResource("3_yf2nd")
+
+[node name="dadAnim" instance=ExtResource("1_oyudx")]
+
+[node name="Cylinder" parent="walking/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("2_t28vd")
+
+[node name="dad_003" parent="walking/Skeleton3D" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_qwvvm")
+surface_material_override/1 = ExtResource("4_ufmq3")
+
+[node name="dad_004" parent="walking/Skeleton3D" index="2"]
+surface_material_override/0 = ExtResource("4_ufmq3")
+
+[node name="shirt_005" parent="walking/Skeleton3D" index="3"]
+surface_material_override/0 = ExtResource("5_4rcdr")

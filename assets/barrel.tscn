@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu2aqhxx7dwe6"]
+
+[ext_resource type="PackedScene" uid="uid://cykbpnwoeutsr" path="res://assets/imported/barrel.glb" id="1_jqaxm"]
+[ext_resource type="Material" uid="uid://babwlfyfkrlii" path="res://assets/greenMetal.tres" id="2_70f6j"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fj2d4"]
+height = 0.54
+radius = 0.19
+
+[node name="barrel" instance=ExtResource("1_jqaxm")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="0"]
+transform = Transform3D(0.903278, 0, 0, 0, 0.903278, 0, 0, 0, 0.903278, -8.51154e-05, 0.0292406, -0.000164628)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("CylinderShape3D_fj2d4")
+
+[node name="barrel" parent="." index="1"]
+surface_material_override/0 = ExtResource("2_70f6j")

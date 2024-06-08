@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://vayte73cas7r"]
+
+[ext_resource type="PackedScene" uid="uid://w4muim10rong" path="res://assets/imported/smallCrate2.glb" id="1_pj88d"]
+[ext_resource type="Material" uid="uid://d3d0gcoq1ts65" path="res://assets/materials/wood_1.tres" id="2_nubdp"]
+
+[node name="smallCrate2" instance=ExtResource("1_pj88d")]
+
+[node name="crate2" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_nubdp")

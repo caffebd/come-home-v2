@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgnfpyjkoct7l"]
+
+[ext_resource type="PackedScene" uid="uid://cfw7q6urfs2k3" path="res://assets/imported/metalBucket.glb" id="1_w7rfo"]
+[ext_resource type="Material" uid="uid://brvx73drqe38a" path="res://assets/materials/metal_1.tres" id="2_y0itc"]
+
+[node name="metalBucket" instance=ExtResource("1_w7rfo")]
+
+[node name="metalBucket" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_y0itc")

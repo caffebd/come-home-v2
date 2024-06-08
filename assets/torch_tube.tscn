@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://jsdyyp551cbq"]
+
+[ext_resource type="PackedScene" uid="uid://ca0htsraoe1a2" path="res://assets/imported/torchTube.glb" id="1_beqbx"]
+[ext_resource type="Material" uid="uid://bh8wl2s4b88ey" path="res://assets/materials/torch_body.tres" id="2_7mgwx"]
+[ext_resource type="Material" uid="uid://b6x0v0a6264hv" path="res://assets/materials/bulbMetal.tres" id="3_0fx8n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7hnbv"]
+albedo_color = Color(0.691357, 0.691357, 0.691357, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g1wsi"]
+albedo_color = Color(0.77, 0, 0, 1)
+
+[node name="torchTube" instance=ExtResource("1_beqbx")]
+
+[node name="Cube_006" parent="." index="0"]
+layers = 524288
+surface_material_override/0 = ExtResource("2_7mgwx")
+surface_material_override/1 = SubResource("StandardMaterial3D_7hnbv")
+surface_material_override/2 = ExtResource("3_0fx8n")
+surface_material_override/3 = SubResource("StandardMaterial3D_g1wsi")

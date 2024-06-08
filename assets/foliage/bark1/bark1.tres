@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://c8agjgl6a54o6"]
+
+[ext_resource type="Texture2D" uid="uid://b8041owbbolj3" path="res://assets/foliage/bark1/sf4nfh0b_2K_Albedo.jpg" id="1_vl33q"]
+[ext_resource type="Texture2D" uid="uid://dqxvxape1phre" path="res://assets/foliage/bark1/sf4nfh0b_2K_Albedo_Normal.jpg" id="2_3xfj2"]
+
+[resource]
+albedo_texture = ExtResource("1_vl33q")
+normal_enabled = true
+normal_texture = ExtResource("2_3xfj2")

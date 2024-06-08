@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cay1rv6upaf74"]
+
+[ext_resource type="PackedScene" uid="uid://ba1eunuy2ax0j" path="res://assets/imported/lightWarning.glb" id="1_11fx1"]
+[ext_resource type="Material" uid="uid://d1ql6uldycmbp" path="res://assets/torch_instructions.tres" id="2_sbxym"]
+
+[node name="lightWarning" instance=ExtResource("1_11fx1")]
+
+[node name="instructions_albedo" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_sbxym")
